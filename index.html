@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-br" dir="ltr">
+  <head>
+    <!-- meta tags obrigatorias -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- fim meta tags obrigatorias -->
+
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <!-- fim bootstrap css -->
+
+    <!-- datepicker -->
+    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" media="screen">
+    <!-- fim datepicker -->
+
+    <!-- estilo css -->
+    <link rel="stylesheet" href="css/estilo.css">
+    <!-- fim estilo css -->
+
+    <title>Protótipo MAPFRE</title>
+  </head>
+  <body>
+    <form>
+      <section class="process-tabs">
+        <!-- menu navtabs -->
+        <div class="container">
+          <button type="button" name="button" class="btn next arrow-right-tab"></button>
+          <ul class="nav nav-tabs process-model" role="tablist">
+            <li role="presentation" class="active">
+              <a href="#primeira-etapa" aria-controls="primeira-etapa" role="tab" data-toggle="tab">
+                <span class="border-active">
+                  <span>1</span>
+                </span>
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#segunda-etapa" aria-controls="segunda-etapa" role="tab" data-toggle="tab">
+                <span class="border-active">
+                  <span>2</span>
+                </span>
+              </a>
+            </li>
+            <li role="presentation">
+              <a href="#terceira-etapa" aria-controls="terceira-etapa" role="tab" data-toggle="tab">
+                <span class="border-active">
+                  <span>3</span>
+                </span>
+              </a>
+            </li>
+          </ul>
+          <button type="button" name="button" class="btn prev arrow-left-tab"></button>
+        </div>
+        <!-- fim menu navtabs -->
+        <div class="tab-content">
+          <!-- primeira etapa -->
+          <div role="tabpanel" class="tab-pane active" id="primeira-etapa">
+            <div class="container primeira-etapa">
+              <!-- dados pessoais -->
+              <div class="row">
+                <div class="col-12 mt-2 mb-2">
+                  <div class="box-titulo dados-pessoais">
+                    <h6>Dados Pessoais</h6>
+                    <hr>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form">
+                      <input type="text" name="cpf" onkeypress="$(this).mask('000.000.000-00');" autocomplete="off" required>
+                      <label for="cpf" class="label-name">
+                          <span class="content-name">CPF</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
+                      <div class="form">
+                        <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
+                        <label for="text" class="label-name">
+                        <span class="content-name">
+                            <span class="icon-doc-calendario icones" aria-hidden="true"></span>
+                            <span>Data de nascimento</span>
+                        </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form">
+                      <input type="text" name="aposentadoria" autocomplete="off" required>
+                      <label for="aposentadoria" class="label-name">
+                          <span class="content-name">Idade de aposentadoria</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fim dados pessoais -->
+              <!-- produto -->
+              <div class="row mt-5">
+                <div class="col-12 mt-2 mb-2">
+                  <div class="box-titulo produto">
+                    <h6>Produto</h6>
+                    <hr>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info text-center">
+                    <h6 class="mt-2 mb-4">Qual tipo de plano gostaria de contratar?</h6>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="tipo-produto" id="pgbl" value="pgbl">
+                      <label for="pgbl">PGBL</label>
+                    </div>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="tipo-produto" id="vgbl" value="vgbl">
+                      <label for="vgbl">VGBL</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info text-center">
+                    <h6 class="mt-2 mb-4">Agora escolha o tipo de regime tributário</h6>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="regime-tributario" id="progressivo" value="progressivo">
+                      <label for="progressivo">Progressivo</label>
+                    </div>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="regime-tributario" id="regressivo" value="regressivo">
+                      <label for="regressivo">Regressivo</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fim produto -->
+            </div>
+          </div>
+          <!-- fim primeira etapa -->
+
+          <!-- segunda etapa -->
+          <div role="tabpanel" class="tab-pane fade" id="segunda-etapa">
+            <div class="container primeira-etapa">
+              <!-- dados pessoais -->
+              <div class="row">
+                <div class="col-12 mt-2 mb-2">
+                  <div class="box-titulo dados-pessoais">
+                    <h6>Dados Pessoais</h6>
+                    <hr>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form">
+                      <input type="text" name="cpf" onkeypress="$(this).mask('000.000.000-00');" autocomplete="off" required>
+                      <label for="cpf" class="label-name">
+                          <span class="content-name">CPF</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
+                      <div class="form">
+                        <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
+                        <label for="text" class="label-name">
+                        <span class="content-name">
+                            <span class="icon-doc-calendario icones" aria-hidden="true"></span>
+                            <span>Data de nascimento</span>
+                        </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form">
+                      <input type="text" name="aposentadoria" autocomplete="off" required>
+                      <label for="aposentadoria" class="label-name">
+                          <span class="content-name">Idade de aposentadoria</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fim dados pessoais -->
+              <!-- produto -->
+              <div class="row mt-5">
+                <div class="col-12 mt-2 mb-2">
+                  <div class="box-titulo produto">
+                    <h6>Produto</h6>
+                    <hr>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info text-center">
+                    <h6 class="mt-2 mb-4">Qual tipo de plano gostaria de contratar?</h6>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="tipos" id="tipo1" value="pgbl">
+                      <label for="tipo1">tipo1</label>
+                    </div>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="tipos" id="tipo2" value="vgbl">
+                      <label for="tipo2">tipo2</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info text-center">
+                    <h6 class="mt-2 mb-4">Agora escolha o tipo de regime tributário</h6>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="regime-tributario" id="progressivo" value="progressivo">
+                      <label for="progressivo">Progressivo</label>
+                    </div>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="regime-tributario" id="regressivo" value="regressivo">
+                      <label for="regressivo">Regressivo</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fim produto -->
+            </div>
+          </div>
+          <!-- fim segunda etapa -->
+
+          <!-- terceira etapa -->
+          <div role="tabpanel" class="tab-pane fade" id="terceira-etapa">
+            <div class="container primeira-etapa">
+              <!-- dados pessoais -->
+              <div class="row">
+                <div class="col-12 mt-2 mb-2">
+                  <div class="box-titulo dados-pessoais">
+                    <h6>Dados Pessoais</h6>
+                    <hr>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form">
+                      <input type="text" name="cpf" onkeypress="$(this).mask('000.000.000-00');" autocomplete="off" required>
+                      <label for="cpf" class="label-name">
+                          <span class="content-name">CPF</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
+                      <div class="form">
+                        <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
+                        <label for="text" class="label-name">
+                        <span class="content-name">
+                            <span class="icon-doc-calendario icones" aria-hidden="true"></span>
+                            <span>Data de nascimento</span>
+                        </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form">
+                      <input type="text" name="aposentadoria" autocomplete="off" required>
+                      <label for="aposentadoria" class="label-name">
+                          <span class="content-name">Idade de aposentadoria</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fim dados pessoais -->
+              <!-- produto -->
+              <div class="row mt-5">
+                <div class="col-12 mt-2 mb-2">
+                  <div class="box-titulo produto">
+                    <h6>Produto</h6>
+                    <hr>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info text-center">
+                    <h6 class="mt-2 mb-4">Qual tipo de plano gostaria de contratar?</h6>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="tipos4" id="tipo4" value="tipo4">
+                      <label for="tipo4">PGBL</label>
+                    </div>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="tipos4" id="tipo5" value="tipo5">
+                      <label for="tipo5">VGBL</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info text-center">
+                    <h6 class="mt-2 mb-4">Agora escolha o tipo de regime tributário</h6>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="regime-tributario" id="progressivo" value="progressivo">
+                      <label for="progressivo">Progressivo</label>
+                    </div>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="regime-tributario" id="regressivo" value="regressivo">
+                      <label for="regressivo">Regressivo</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fim produto -->
+            </div>
+          </div>
+          <!-- fim terceira etapa -->
+        </div>
+        <!-- btns etapas -->
+        <div class="container">
+          <div class="buttons-tab">
+            <button type="button" name="button" class="btn btn-prev float-left prev">Anterior</button>
+            <button type="button" name="button" class="btn btn-next float-right next">Próximo</button>
+            <button type="button" name="button" class="btn btn-final float-right d-none">Finalizar</button>
+          </div>
+        </div>
+        <!-- btns etapas -->
+      </section>
+    </form>
+
+
+
+  <!-- scripts necessarios -->
+  <script src="js/jquery-3.3.1.slim.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <!-- fim scripts necessarios -->
+
+  <!-- script datepicker -->
+  <script src="js/bootstrap-datetimepicker.js"></script>
+  <script src="js/locales/bootstrap-datetimepicker.pt-BR.js"></script>
+  <!-- fim script datepicker -->
+
+  <!-- script mask para inputs cpf, cnpj, data, moeda etc -->
+  <script src="js/jquery.mask.min.js"></script>
+  <!-- fim script mask para inputs cpf, cnpj, moeda etc -->
+
+  <!-- script configuracoes -->
+  <script src="js/script.js"></script>
+  <!-- fim script configuracoes -->
+  </body>
+</html>
