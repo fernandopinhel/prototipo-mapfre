@@ -27,14 +27,14 @@
         <div class="container">
           <button type="button" name="button" class="btn next arrow-right-tab"></button>
           <ul class="nav nav-tabs process-model" role="tablist">
-            <li role="presentation" class="active">
+            <li role="presentation">
               <a href="#primeira-etapa" aria-controls="primeira-etapa" role="tab" data-toggle="tab">
                 <span class="border-active">
                   <span>1</span>
                 </span>
               </a>
             </li>
-            <li role="presentation">
+            <li role="presentation" class="active">
               <a href="#segunda-etapa" aria-controls="segunda-etapa" role="tab" data-toggle="tab">
                 <span class="border-active">
                   <span>2</span>
@@ -48,13 +48,20 @@
                 </span>
               </a>
             </li>
+            <li role="presentation">
+              <a href="#quarta-etapa" aria-controls="quarta-etapa" role="tab" data-toggle="tab">
+                <span class="border-active">
+                  <span>4</span>
+                </span>
+              </a>
+            </li>
           </ul>
           <button type="button" name="button" class="btn prev arrow-left-tab"></button>
         </div>
         <!-- fim menu navtabs -->
         <div class="tab-content">
           <!-- primeira etapa -->
-          <div role="tabpanel" class="tab-pane active" id="primeira-etapa">
+          <div role="tabpanel" class="tab-pane" id="primeira-etapa">
             <div class="container primeira-etapa">
               <!-- dados pessoais -->
               <div class="row">
@@ -142,84 +149,204 @@
           <!-- fim primeira etapa -->
 
           <!-- segunda etapa -->
-          <div role="tabpanel" class="tab-pane fade" id="segunda-etapa">
-            <div class="container primeira-etapa">
-              <!-- dados pessoais -->
+          <div role="tabpanel" class="tab-pane active" id="segunda-etapa">
+            <div class="container segunda-etapa">
+              <!-- valores -->
               <div class="row">
                 <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo dados-pessoais">
-                    <h6>Dados Pessoais</h6>
+                  <div class="box-titulo valores">
+                    <h6>Valores</h6>
                     <hr>
                   </div>
                 </div>
-                <div class="col-sm-4 mt-2">
+                <div class="col-sm-6 mt-2">
                   <div class="box-info">
                     <div class="form">
                       <input type="text" name="cpf" onkeypress="$(this).mask('000.000.000-00');" autocomplete="off" required>
                       <label for="cpf" class="label-name">
-                          <span class="content-name">CPF</span>
+                          <span class="content-name">Quanto você deseja contribuir mensalmente (R$)?</span>
                       </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4 mt-2">
-                  <div class="box-info">
-                    <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
-                      <div class="form">
-                        <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
-                        <label for="text" class="label-name">
-                        <span class="content-name">
-                            <span class="icon-doc-calendario icones" aria-hidden="true"></span>
-                            <span>Data de nascimento</span>
-                        </span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4 mt-2">
+                <div class="col-sm-6 mt-2">
                   <div class="box-info">
                     <div class="form">
                       <input type="text" name="aposentadoria" autocomplete="off" required>
                       <label for="aposentadoria" class="label-name">
-                          <span class="content-name">Idade de aposentadoria</span>
+                          <span class="content-name">Valor do Aporte Inicial (R$)</span>
                       </label>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- fim dados pessoais -->
-              <!-- produto -->
+              <!-- fim valores -->
+              <!-- fundos disponiveis -->
               <div class="row mt-5">
                 <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo produto">
-                    <h6>Produto</h6>
+                  <div class="box-titulo fundos-disponiveis">
+                    <h6>Fundos Disponíveis</h6>
                     <hr>
                   </div>
                 </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info text-center">
-                    <h6 class="mt-2 mb-4">Qual tipo de plano gostaria de contratar?</h6>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="tipos" id="tipo1" value="pgbl">
-                      <label for="tipo1">tipo1</label>
-                    </div>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="tipos" id="tipo2" value="vgbl">
-                      <label for="tipo2">tipo2</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info text-center">
-                    <h6 class="mt-2 mb-4">Agora escolha o tipo de regime tributário</h6>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="regime-tributario" id="progressivo" value="progressivo">
-                      <label for="progressivo">Progressivo</label>
-                    </div>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="regime-tributario" id="regressivo" value="regressivo">
-                      <label for="regressivo">Regressivo</label>
+                <div class="col-12 mt-2">
+                  <div class="row mt-5 resultado-filtro">
+                    <div class="col">
+                      <p><strong>50</strong> resultados</p>
+                      <div class="table-responsive">
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th>Apólice</th>
+                              <th>Data da Ocorrência</th>
+                              <th>Placa</th>
+                              <th>Nome do Segurado</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td class="actions">
+                                <div class="float-right">
+                                  <div class="menu-visible">
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                  </div>
+                                  <div class="menu-invisible">
+                                    <a href="#">
+                                      <img src="img/visualizar.png" title="" data-toggle="tooltip" data-original-title="Visualizar detalhes">
+                                    </a>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                            </tr>
+                            <tr class="separator">
+                              <td colspan="5"></td>
+                            </tr>
+                            <tr>
+                              <td class="actions">
+                                <div class="float-right">
+                                  <div class="menu-visible">
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                  </div>
+                                  <div class="menu-invisible">
+                                    <a href="#">
+                                      <img src="img/visualizar.png" title="" data-toggle="tooltip" data-original-title="Visualizar detalhes">
+                                    </a>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                            </tr>
+                            <tr class="separator">
+                              <td colspan="5"></td>
+                            </tr>
+                            <tr>
+                              <td class="actions">
+                                <div class="float-right">
+                                  <div class="menu-visible">
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                  </div>
+                                  <div class="menu-invisible">
+                                    <a href="#">
+                                      <img src="img/visualizar.png" title="" data-toggle="tooltip" data-original-title="Visualizar detalhes">
+                                    </a>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                            </tr>
+                            <tr class="separator">
+                              <td colspan="5"></td>
+                            </tr>
+                            <tr>
+                              <td class="actions">
+                                <div class="float-right">
+                                  <div class="menu-visible">
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                  </div>
+                                  <div class="menu-invisible">
+                                    <a href="#">
+                                      <img src="img/visualizar.png" title="" data-toggle="tooltip" data-original-title="Visualizar detalhes">
+                                    </a>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                            </tr>
+                            <tr class="separator">
+                                <td colspan="5"></td>
+                            </tr>
+                            <tr>
+                              <td class="actions">
+                                <div class="float-right">
+                                  <div class="menu-visible">
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                    <span class="circle"></span>
+                                  </div>
+                                  <div class="menu-invisible">
+                                    <a href="#">
+                                      <img src="img/visualizar.png" title="" data-toggle="tooltip" data-original-title="Visualizar detalhes">
+                                    </a>
+                                  </div>
+                                </div>
+                              </td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                              <td>PCERO_PARTC_APOLC_CTLZA</td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <ul class="pagination">
+                        <li>
+                          <a href="#" class="prev">
+                          <span class="icon icon-seta-dupla-b" aria-hidden="true"></span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="prev">
+                            <span class="icon icon-seta-esquerda-a" aria-hidden="true"></span>
+                          </a>
+                        </li>
+                        <li><a href="#">1</a></li>
+                        <li><a href="#" class="active">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#">4</a></li>
+                        <li><a href="#">5</a></li>
+                        <li>
+                          <a href="#" class="next">
+                            <span class="icon icon-seta-direita-a" aria-hidden="true"></span>
+                          </a>
+                        </li>
+                        <li>
+                          <a href="#" class="next">
+                            <span class="icon icon-seta-dupla-direita-b" aria-hidden="true"></span>
+                          </a>
+                        </li>
+                      </ul>
                     </div>
                   </div>
                 </div>
@@ -231,7 +358,7 @@
 
           <!-- terceira etapa -->
           <div role="tabpanel" class="tab-pane fade" id="terceira-etapa">
-            <div class="container primeira-etapa">
+            <div class="container terceira-etapa">
               <!-- dados pessoais -->
               <div class="row">
                 <div class="col-12 mt-2 mb-2">
@@ -316,6 +443,94 @@
             </div>
           </div>
           <!-- fim terceira etapa -->
+
+          <!-- quarta etapa -->
+          <div role="tabpanel" class="tab-pane fade" id="quarta-etapa">
+            <div class="container quarta-etapa">
+              <!-- dados pessoais -->
+              <div class="row">
+                <div class="col-12 mt-2 mb-2">
+                  <div class="box-titulo dados-pessoais">
+                    <h6>Dados Pessoais</h6>
+                    <hr>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form">
+                      <input type="text" name="cpf" onkeypress="$(this).mask('000.000.000-00');" autocomplete="off" required>
+                      <label for="cpf" class="label-name">
+                          <span class="content-name">CPF</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
+                      <div class="form">
+                        <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
+                        <label for="text" class="label-name">
+                        <span class="content-name">
+                            <span class="icon-doc-calendario icones" aria-hidden="true"></span>
+                            <span>Data de nascimento</span>
+                        </span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-2">
+                  <div class="box-info">
+                    <div class="form">
+                      <input type="text" name="aposentadoria" autocomplete="off" required>
+                      <label for="aposentadoria" class="label-name">
+                          <span class="content-name">Idade de aposentadoria</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fim dados pessoais -->
+              <!-- produto -->
+              <div class="row mt-5">
+                <div class="col-12 mt-2 mb-2">
+                  <div class="box-titulo produto">
+                    <h6>Produto</h6>
+                    <hr>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info text-center">
+                    <h6 class="mt-2 mb-4">Qual tipo de plano gostaria de contratar?</h6>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="tipos4" id="tipo4" value="tipo4">
+                      <label for="tipo4">PGBL</label>
+                    </div>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="tipos4" id="tipo5" value="tipo5">
+                      <label for="tipo5">VGBL</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info text-center">
+                    <h6 class="mt-2 mb-4">Agora escolha o tipo de regime tributário</h6>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="regime-tributario" id="progressivo" value="progressivo">
+                      <label for="progressivo">Progressivo</label>
+                    </div>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="regime-tributario" id="regressivo" value="regressivo">
+                      <label for="regressivo">Regressivo</label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fim produto -->
+            </div>
+          </div>
+          <!-- fim quarta etapa -->
         </div>
         <!-- btns etapas -->
         <div class="container">

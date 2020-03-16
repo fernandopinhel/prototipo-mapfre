@@ -69,4 +69,11 @@ $('a[href="#dados-pessoais"]').click(function(){
   $(".btn-final").addClass("d-none");
   $(".btn-next").removeClass("d-none");
 });
+
+
+$('.process-model li.active::before, .process-model li.visited::before').click(function(){
+  $(".process-model li.active:first-child::before").addClass("d-block");
+});
+
+
 // fim script for tab steps
