@@ -70,10 +70,83 @@ $('a[href="#dados-pessoais"]').click(function(){
   $(".btn-next").removeClass("d-none");
 });
 
-
 $('.process-model li.active::before, .process-model li.visited::before').click(function(){
   $(".process-model li.active:first-child::before").addClass("d-block");
 });
-
-
 // fim script for tab steps
+
+// tabela botões animados
+
+$('[sel-produto="1"]').click(function(){
+  $('[sel-produto="1"]').addClass("d-none");
+  $('[sel-produto="escolhido-1"]').removeClass("d-none");
+  $('.table>tbody>tr').addClass('bg-sel');
+});
+
+$('[sel-produto="escolhido-1"]').click(function(){
+  $('[sel-produto="1"]').removeClass("d-none");
+  $('[sel-produto="escolhido-1"]').addClass("d-none");
+});
+
+
+$('[sel-produto="2"]').click(function(){
+  $('[sel-produto="2"]').addClass("d-none");
+  $('[sel-produto="escolhido-2"]').removeClass("d-none");
+  $('.table>tbody>tr').addClass('bg-sel');
+});
+
+$('[sel-produto="escolhido-2"]').click(function(){
+  $('[sel-produto="2"]').removeClass("d-none");
+  $('[sel-produto="escolhido-2"]').addClass("d-none");
+});
+
+
+$('[sel-produto="3"]').click(function(){
+  $('[sel-produto="3"]').addClass("d-none");
+  $('[sel-produto="escolhido-3"]').removeClass("d-none");
+  $('.table>tbody>tr').addClass('bg-sel');
+});
+
+$('[sel-produto="escolhido-3"]').click(function(){
+  $('[sel-produto="3"]').removeClass("d-none");
+  $('[sel-produto="escolhido-3"]').addClass("d-none");
+});
+
+
+$('[sel-produto="4"]').click(function(){
+  $('[sel-produto="4"]').addClass("d-none");
+  $('[sel-produto="escolhido-4"]').removeClass("d-none");
+  $('.table>tbody>tr').addClass('bg-sel');
+});
+
+$('[sel-produto="escolhido-4"]').click(function(){
+  $('[sel-produto="4"]').removeClass("d-none");
+  $('[sel-produto="escolhido-4"]').addClass("d-none");
+});
+
+$('[sel-produto="5"]').click(function(){
+  $('[sel-produto="5"]').addClass("d-none");
+  $('[sel-produto="escolhido-5"]').removeClass("d-none");
+  $('.table>tbody>tr').addClass('bg-sel');
+});
+
+$('[sel-produto="escolhido-5"]').click(function(){
+  $('[sel-produto="5"]').removeClass("d-none");
+  $('[sel-produto="escolhido-5"]').addClass("d-none");
+});
+
+$('.table>tbody>tr').click(function(){
+  // Removendo a classe de todos os elementos da lista
+  $('.table>tbody>tr').removeClass('bg-sel');
+  // Adicionando classe ao elemento da lista clicada
+  $(this).addClass('bg-sel');
+});
+
+$('.table>tbody>tr').click(function(){
+  // Removendo a classe de todos os elementos da lista
+  $('.table>tbody>tr').removeClass('bg-sel');
+  // Adicionando classe ao elemento da lista clicada
+  $(this).addClass('bg-sel');
+});
+
+// fim tabela botões animados
