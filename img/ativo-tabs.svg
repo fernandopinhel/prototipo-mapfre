@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="37px" height="37px" viewBox="0 0 37 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="38px" height="37px" viewBox="0 0 38 37" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <!-- Generator: Sketch 45.2 (43514) - http://www.bohemiancoding.com/sketch -->
     <title>Group 8</title>
     <desc>Created with Sketch.</desc>
@@ -12,17 +12,15 @@
         </filter>
     </defs>
     <g id="Page-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="5" transform="translate(-409.000000, -65.000000)">
+        <g id="5" transform="translate(-898.000000, -65.000000)">
             <g id="header" transform="translate(-38.000000, -12.000000)">
                 <g id="wizard" transform="translate(451.000000, 81.000000)">
-                    <g id="Group-8">
+                    <g id="Group-8" transform="translate(489.666667, 0.000000)">
                         <g id="Oval">
                             <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
-                            <use fill="#FC1702" fill-rule="evenodd" xlink:href="#path-1"></use>
+                            <use fill="#FFFFFF" fill-rule="evenodd" xlink:href="#path-1"></use>
                         </g>
-                        <g id="iconfinder_check_2561355" transform="translate(9.000000, 9.698975)" stroke-linecap="round" stroke-width="2" stroke="#FFFFFF" stroke-linejoin="round">
-                            <polyline id="Shape" points="12.0742188 0 3.77319336 8.30102539 0 4.52783203"></polyline>
-                        </g>
+                        <circle id="Oval" fill="#EA1D2C" cx="14.4472656" cy="14.4472656" r="4.0703125"></circle>
                     </g>
                 </g>
             </g>
