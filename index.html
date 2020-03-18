@@ -21,58 +21,72 @@
     <title>Protótipo MAPFRE</title>
   </head>
   <body>
-    <form>
-      <section class="process-tabs">
-        <!-- menu navtabs -->
+    <header>
+      <div class="logos">
+        <img src="img/logo-ifood.svg" class="mr-5">
+        <img scr="img/logo-mapfre.svg">
+      </div>
+      <!-- menu navtabs -->
+      <div class="navtabs">
         <div class="container">
           <button type="button" name="button" class="btn next arrow-right-tab"></button>
           <ul class="nav nav-tabs process-model" role="tablist">
-            <li role="presentation">
+            <li role="presentation" class="active">
               <a href="#primeira-etapa" aria-controls="primeira-etapa" role="tab" data-toggle="tab">
                 <span class="border-active">
-                  <span>1</span>
+                  <span></span>
+                  <span class="check-tabs"></span>
                 </span>
               </a>
             </li>
-            <li role="presentation" class="active">
+            <li role="presentation">
               <a href="#segunda-etapa" aria-controls="segunda-etapa" role="tab" data-toggle="tab">
                 <span class="border-active">
-                  <span>2</span>
+                  <span></span>
+                  <span class="check-tabs"></span>
+                  <span class="next-tabs"></span>
                 </span>
               </a>
             </li>
             <li role="presentation">
               <a href="#terceira-etapa" aria-controls="terceira-etapa" role="tab" data-toggle="tab">
                 <span class="border-active">
-                  <span>3</span>
+                  <span></span>
+                  <span class="check-tabs"></span>
+                  <span class="next-tabs"></span>
                 </span>
               </a>
             </li>
             <li role="presentation">
               <a href="#quarta-etapa" aria-controls="quarta-etapa" role="tab" data-toggle="tab">
                 <span class="border-active">
-                  <span>4</span>
+                  <span></span>
+                  <span class="check-tabs"></span>
+                  <span class="next-tabs"></span>
                 </span>
               </a>
             </li>
           </ul>
           <button type="button" name="button" class="btn prev arrow-left-tab"></button>
         </div>
-        <!-- fim menu navtabs -->
+      </div>
+      <!-- fim menu navtabs -->
+    </header>
+    <form>
+      <section class="process-tabs">
         <div class="tab-content">
           <!-- primeira etapa -->
-          <div role="tabpanel" class="tab-pane" id="primeira-etapa">
+          <div role="tabpanel" class="tab-pane active" id="primeira-etapa">
             <div class="container primeira-etapa">
               <!-- dados pessoais -->
               <div class="row">
                 <div class="col-12 mt-2 mb-2">
                   <div class="box-titulo dados-pessoais">
                     <h6>Dados Pessoais</h6>
-                    <hr>
                   </div>
                 </div>
                 <div class="col-sm-4 mt-2">
-                  <div class="box-info">
+                  <div class="box-info d-flex">
                     <div class="form">
                       <input type="text" name="cpf" onkeypress="$(this).mask('000.000.000-00');" autocomplete="off" required>
                       <label for="cpf" class="label-name">
@@ -82,14 +96,13 @@
                   </div>
                 </div>
                 <div class="col-sm-4 mt-2">
-                  <div class="box-info">
+                  <div class="box-info d-flex">
                     <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
                       <div class="form">
                         <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
                         <label for="text" class="label-name">
                         <span class="content-name">
-                            <span class="icon-doc-calendario icones" aria-hidden="true"></span>
-                            <span>Data de nascimento</span>
+                          <span>Data de nascimento</span>
                         </span>
                         </label>
                       </div>
@@ -97,7 +110,7 @@
                   </div>
                 </div>
                 <div class="col-sm-4 mt-2">
-                  <div class="box-info">
+                  <div class="box-info d-flex">
                     <div class="form">
                       <input type="text" name="aposentadoria" autocomplete="off" required>
                       <label for="aposentadoria" class="label-name">
@@ -113,12 +126,11 @@
                 <div class="col-12 mt-2 mb-2">
                   <div class="box-titulo produto">
                     <h6>Produto</h6>
-                    <hr>
                   </div>
                 </div>
                 <div class="col-sm-6 mt-2">
                   <div class="box-info text-center">
-                    <h6 class="mt-2 mb-4">Qual tipo de plano gostaria de contratar?</h6>
+                    <h6 class="mt-2 mb-3">Qual tipo de plano gostaria de contratar?</h6>
                     <div class="d-inline mr-3">
                       <input class="radio-config" type="radio" name="tipo-produto" id="pgbl" value="pgbl">
                       <label for="pgbl">PGBL</label>
@@ -131,7 +143,7 @@
                 </div>
                 <div class="col-sm-6 mt-2">
                   <div class="box-info text-center">
-                    <h6 class="mt-2 mb-4">Agora escolha o tipo de regime tributário</h6>
+                    <h6 class="mt-2 mb-3">Agora escolha o tipo de regime tributário</h6>
                     <div class="d-inline mr-3">
                       <input class="radio-config" type="radio" name="regime-tributario" id="progressivo" value="progressivo">
                       <label for="progressivo">Progressivo</label>
@@ -149,18 +161,17 @@
           <!-- fim primeira etapa -->
 
           <!-- segunda etapa -->
-          <div role="tabpanel" class="tab-pane active" id="segunda-etapa">
+          <div role="tabpanel" class="tab-pane" id="segunda-etapa">
             <div class="container segunda-etapa">
               <!-- valores -->
               <div class="row">
                 <div class="col-12 mt-2 mb-2">
                   <div class="box-titulo valores">
                     <h6>Valores</h6>
-                    <hr>
                   </div>
                 </div>
                 <div class="col-sm-6 mt-2">
-                  <div class="box-info">
+                  <div class="box-info d-flex">
                     <div class="form">
                       <input type="text" name="cpf" onkeypress="$(this).mask('000.000.000-00');" autocomplete="off" required>
                       <label for="cpf" class="label-name">
@@ -170,7 +181,7 @@
                   </div>
                 </div>
                 <div class="col-sm-6 mt-2">
-                  <div class="box-info">
+                  <div class="box-info d-flex">
                     <div class="form">
                       <input type="text" name="aposentadoria" autocomplete="off" required>
                       <label for="aposentadoria" class="label-name">
@@ -186,7 +197,6 @@
                 <div class="col-12 mt-2 mb-4">
                   <div class="box-titulo fundos-disponiveis">
                     <h6>Fundos Disponíveis</h6>
-                    <hr>
                   </div>
                 </div>
                 <div class="col-12">
@@ -348,87 +358,318 @@
           <!-- terceira etapa -->
           <div role="tabpanel" class="tab-pane fade" id="terceira-etapa">
             <div class="container terceira-etapa">
-              <!-- dados pessoais -->
+              <!-- dados do proponente -->
               <div class="row">
                 <div class="col-12 mt-2 mb-2">
                   <div class="box-titulo dados-pessoais">
-                    <h6>Dados Pessoais</h6>
-                    <hr>
+                    <h6>Dados do proponente</h6>
                   </div>
                 </div>
-                <div class="col-sm-4 mt-2">
-                  <div class="box-info">
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info text-center">
+                    <h6 class="mt-2 mb-3">Sexo</h6>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="sexo" id="sexo-fem" value="sexo-fem">
+                      <label for="sexo-fem">Feminino</label>
+                    </div>
+                    <div class="d-inline mr-3">
+                      <input class="radio-config" type="radio" name="sexo" id="sexo-masc" value="sexo-masc">
+                      <label for="sexo-masc">Masculino</label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info d-flex">
                     <div class="form">
-                      <input type="text" name="cpf" onkeypress="$(this).mask('000.000.000-00');" autocomplete="off" required>
-                      <label for="cpf" class="label-name">
-                          <span class="content-name">CPF</span>
+                      <input type="text" name="nome-completo" autocomplete="off" required>
+                      <label for="nome-completo" class="label-name">
+                          <span class="content-name">Nome completo</span>
                       </label>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4 mt-2">
-                  <div class="box-info">
+                <div class="col-sm-4 mt-4">
+                  <div class="box-info d-flex">
+                    <div class="form-select">
+                      <span class="titulo">Estado civil</span>
+                      <select name="name" id="estado-civil" class="custom-select sources" placeholder="Selecione">
+                        <option value="">Solteiro(a)</option>
+                        <option value="">Casado(a)</option>
+                        <option value="">Divorciado(a)</option>
+                        <option value="">Viúvo(a)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-4">
+                  <div class="box-info d-flex">
+                    <div class="form">
+                      <input type="text" name="renda" autocomplete="off" required>
+                      <label for="renda" class="label-name">
+                          <span class="content-name">Renda</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-4">
+                  <div class="box-info d-flex">
+                    <div class="form-select">
+                      <span class="titulo">Profissão</span>
+                      <select name="name" id="profissao" class="custom-select sources" placeholder="Selecione">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fim dados proponente -->
+              <!-- documentacao -->
+              <div class="row mt-5">
+                <div class="col-12 mt-2 mb-2">
+                  <div class="box-titulo produto">
+                    <h6>Documentação</h6>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info d-flex">
+                    <div class="form-select">
+                      <span class="titulo">Natureza doc. identificação</span>
+                      <select name="name" id="nat-doc" class="custom-select sources" placeholder="Selecione">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-2">
+                  <div class="box-info d-flex">
+                    <div class="form">
+                      <input type="text" name="n-doc-id" autocomplete="off" required>
+                      <label for="n-doc-id" class="label-name">
+                          <span class="content-name">N doc. identificação</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-4">
+                  <div class="box-info d-flex">
                     <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
                       <div class="form">
                         <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
                         <label for="text" class="label-name">
                         <span class="content-name">
-                            <span class="icon-doc-calendario icones" aria-hidden="true"></span>
-                            <span>Data de nascimento</span>
+                          <span>Data de expedição</span>
                         </span>
                         </label>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4 mt-2">
-                  <div class="box-info">
+                <div class="col-sm-6 mt-4">
+                  <div class="box-info d-flex">
+                    <div class="form-select">
+                      <span class="titulo">Órgão emissor</span>
+                      <select name="name" id="nat-doc" class="custom-select sources" placeholder="Selecione">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- fim documentacao -->
+              <!-- endereco residencial -->
+              <div class="row mt-5">
+                <div class="col-12 mt-2 mb-2">
+                  <div class="box-titulo produto">
+                    <h6>Endereço Residencial</h6>
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-2">
+                  <div class="box-info d-flex">
                     <div class="form">
-                      <input type="text" name="aposentadoria" autocomplete="off" required>
-                      <label for="aposentadoria" class="label-name">
-                          <span class="content-name">Idade de aposentadoria</span>
+                      <input type="text" name="cep" onkeypress="$(this).mask('00.000.000');" autocomplete="off" required>
+                      <label for="cep" class="label-name">
+                        <span class="content-name">CEP</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-9 mt-2">
+                  <div class="box-info d-flex">
+                    <div class="form">
+                      <input type="text" name="logradouro" autocomplete="off" required>
+                      <label for="logradouro" class="label-name">
+                        <span class="content-name">Logradouro</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-2 mt-4">
+                  <div class="box-info d-flex">
+                    <div class="form">
+                      <input type="text" name="numero" autocomplete="off" required>
+                      <label for="numero" class="label-name">
+                        <span class="content-name">Número</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-4 mt-4">
+                  <div class="box-info d-flex">
+                    <div class="form">
+                      <input type="text" name="complemento" autocomplete="off" required>
+                      <label for="complemento" class="label-name">
+                        <span class="content-name">Complemento</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-4">
+                  <div class="box-info d-flex">
+                    <div class="form">
+                      <input type="text" name="bairro" autocomplete="off" required>
+                      <label for="bairro" class="label-name">
+                        <span class="content-name">Bairro</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-9 mt-4">
+                  <div class="box-info d-flex">
+                    <div class="form">
+                      <input type="text" name="cidade" autocomplete="off" required>
+                      <label for="cidade" class="label-name">
+                        <span class="content-name">Cidade</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-3 mt-4">
+                  <div class="box-info d-flex">
+                    <div class="form-select">
+                      <span class="titulo">UF</span>
+                      <select name="name" id="uf" class="custom-select sources" placeholder="Selecione">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="row mt-5">
+                <div class="col-12 mt-2 mb-2">
+                  <div class="box-titulo produto">
+                    <h6>Endereço Residencial</h6>
+                  </div>
+                </div>
+                <div class="col-sm-7 mt-2">
+                  <div class="box-info d-flex">
+                    <div class="form-select">
+                      <span class="titulo">País</span>
+                      <select name="name" id="pais" class="custom-select sources" placeholder="Selecione">
+                        <option value="">1</option>
+                        <option value="">2</option>
+                        <option value="">3</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="container p-0">
+                  <div class="row m-0">
+                  <div class="col-sm-2 mt-4">
+                    <div class="box-info d-flex">
+                      <div class="form">
+                        <input type="text" name="ddi-1" autocomplete="off" required>
+                        <label for="ddi-1" class="label-name">
+                          <span class="content-name">DDI</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2 mt-4">
+                    <div class="box-info d-flex">
+                      <div class="form">
+                        <input type="text" name="ddd-1" autocomplete="off" required>
+                        <label for="ddd-1" class="label-name">
+                          <span class="content-name">DDD</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-5 mt-4">
+                    <div class="box-info d-flex">
+                      <div class="form">
+                        <input type="text" name="tel-celular-1" autocomplete="off" required>
+                        <label for="tel-celular-1" class="label-name">
+                          <span class="content-name">Tel. Celular</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="container p-0">
+                  <div class="row m-0">
+                  <div class="col-sm-2 mt-4">
+                    <div class="box-info d-flex">
+                      <div class="form">
+                        <input type="text" name="ddi-2" autocomplete="off" required>
+                        <label for="ddi-2" class="label-name">
+                          <span class="content-name">DDI</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-2 mt-4">
+                    <div class="box-info d-flex">
+                      <div class="form">
+                        <input type="text" name="ddd-2" autocomplete="off" required>
+                        <label for="ddd-2" class="label-name">
+                          <span class="content-name">DDD</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-sm-5 mt-4">
+                    <div class="box-info d-flex">
+                      <div class="form">
+                        <input type="text" name="tel-celular-2" autocomplete="off" required>
+                        <label for="tel-celular-2" class="label-name">
+                          <span class="content-name">Tel. Celular</span>
+                        </label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </div>
+                <div class="col-sm-6 mt-4">
+                  <div class="box-info d-flex">
+                    <div class="form">
+                      <input type="text" name="email-1" autocomplete="off" required>
+                      <label for="email-1" class="label-name">
+                        <span class="content-name">Email</span>
+                      </label>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-sm-6 mt-4">
+                  <div class="box-info d-flex">
+                    <div class="form">
+                      <input type="text" name="email-2" autocomplete="off" required>
+                      <label for="email-2" class="label-name">
+                        <span class="content-name">Email</span>
                       </label>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- fim dados pessoais -->
-              <!-- produto -->
-              <div class="row mt-5">
-                <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo produto">
-                    <h6>Produto</h6>
-                    <hr>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info text-center">
-                    <h6 class="mt-2 mb-4">Qual tipo de plano gostaria de contratar?</h6>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="tipos4" id="tipo4" value="tipo4">
-                      <label for="tipo4">PGBL</label>
-                    </div>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="tipos4" id="tipo5" value="tipo5">
-                      <label for="tipo5">VGBL</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info text-center">
-                    <h6 class="mt-2 mb-4">Agora escolha o tipo de regime tributário</h6>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="regime-tributario" id="progressivo" value="progressivo">
-                      <label for="progressivo">Progressivo</label>
-                    </div>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="regime-tributario" id="regressivo" value="regressivo">
-                      <label for="regressivo">Regressivo</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- fim produto -->
+              <!-- fim endereco residencial -->
             </div>
           </div>
           <!-- fim terceira etapa -->
@@ -441,7 +682,6 @@
                 <div class="col-12 mt-2 mb-2">
                   <div class="box-titulo dados-pessoais">
                     <h6>Dados Pessoais</h6>
-                    <hr>
                   </div>
                 </div>
                 <div class="col-sm-4 mt-2">
@@ -486,7 +726,6 @@
                 <div class="col-12 mt-2 mb-2">
                   <div class="box-titulo produto">
                     <h6>Produto</h6>
-                    <hr>
                   </div>
                 </div>
                 <div class="col-sm-6 mt-2">
@@ -521,17 +760,20 @@
           </div>
           <!-- fim quarta etapa -->
         </div>
-        <!-- btns etapas -->
-        <div class="container">
-          <div class="buttons-tab">
-            <button type="button" name="button" class="btn btn-prev float-left prev">Anterior</button>
-            <button type="button" name="button" class="btn btn-next float-right next">Próximo</button>
-            <button type="button" name="button" class="btn btn-final float-right d-none">Finalizar</button>
-          </div>
-        </div>
-        <!-- btns etapas -->
-      </section>
     </form>
+    </section>
+
+    <footer class="">
+      <!-- btns etapas -->
+      <div class="container">
+        <div class="buttons-tab">
+          <button type="button" name="button" class="btn btn-prev float-left prev">Anterior</button>
+          <button type="button" name="button" class="btn btn-next float-right next">Próximo</button>
+          <button type="button" name="button" class="btn btn-final float-right d-none">Finalizar</button>
+        </div>
+      </div>
+      <!-- btns etapas -->
+    </footer>
 
 
 
