@@ -135,7 +135,7 @@
                       <input class="radio-config" type="radio" name="tipo-produto" id="pgbl" value="pgbl">
                       <label for="pgbl">PGBL</label>
                     </div>
-                    <div class="d-inline mr-3">
+                    <div class="d-inline">
                       <input class="radio-config" type="radio" name="tipo-produto" id="vgbl" value="vgbl">
                       <label for="vgbl">VGBL</label>
                     </div>
@@ -148,7 +148,7 @@
                       <input class="radio-config" type="radio" name="regime-tributario" id="progressivo" value="progressivo">
                       <label for="progressivo">Progressivo</label>
                     </div>
-                    <div class="d-inline mr-3">
+                    <div class="d-inline">
                       <input class="radio-config" type="radio" name="regime-tributario" id="regressivo" value="regressivo">
                       <label for="regressivo">Regressivo</label>
                     </div>
@@ -322,12 +322,12 @@
                       <ul class="pagination">
                         <li>
                           <a href="#" class="prev">
-                          <span class="icon icon-seta-dupla-b" aria-hidden="true"></span>
+                          <span class="two-arrow-left"></span>
                           </a>
                         </li>
                         <li>
                           <a href="#" class="prev">
-                            <span class="icon icon-seta-esquerda-a" aria-hidden="true"></span>
+                            <span class="one-arrow-left"></span>
                           </a>
                         </li>
                         <li><a href="#">1</a></li>
@@ -337,12 +337,12 @@
                         <li><a href="#">5</a></li>
                         <li>
                           <a href="#" class="next">
-                            <span class="icon icon-seta-direita-a" aria-hidden="true"></span>
+                            <span class="one-arrow-right"></span>
                           </a>
                         </li>
                         <li>
                           <a href="#" class="next">
-                            <span class="icon icon-seta-dupla-direita-b" aria-hidden="true"></span>
+                            <span class="two-arrow-right" aria-hidden="true"></span>
                           </a>
                         </li>
                       </ul>
@@ -372,7 +372,7 @@
                       <input class="radio-config" type="radio" name="sexo" id="sexo-fem" value="sexo-fem">
                       <label for="sexo-fem">Feminino</label>
                     </div>
-                    <div class="d-inline mr-3">
+                    <div class="d-inline">
                       <input class="radio-config" type="radio" name="sexo" id="sexo-masc" value="sexo-masc">
                       <label for="sexo-masc">Masculino</label>
                     </div>
@@ -677,85 +677,135 @@
           <!-- quarta etapa -->
           <div role="tabpanel" class="tab-pane fade" id="quarta-etapa">
             <div class="container quarta-etapa">
-              <!-- dados pessoais -->
+              <!-- forma de pagamento -->
               <div class="row">
-                <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo dados-pessoais">
-                    <h6>Dados Pessoais</h6>
+                <div class="col-md-6 mt-2 mb-2">
+                  <div class="box-titulo forma-de-pagamento">
+                    <h6>Forma de pagamento</h6>
                   </div>
                 </div>
-                <div class="col-sm-4 mt-2">
-                  <div class="box-info">
-                    <div class="form">
-                      <input type="text" name="cpf" onkeypress="$(this).mask('000.000.000-00');" autocomplete="off" required>
-                      <label for="cpf" class="label-name">
-                          <span class="content-name">CPF</span>
-                      </label>
+                <div class="col-md-6 mt-2 mb-2 d-none d-md-block">
+                  <div class="box-titulo resumo-da-compra">
+                    <img src="img/i-compras.svg" class="float-left mr-2">
+                    <h6 class="pt-1">Resumo da Compra</h6>
+                  </div>
+                </div>
+                <div class="col-md-6 mt-2">
+                  <div class="box-info h-70 d-flex">
+                    <div class="ex-radio w-50">
+                      <input type="radio" id="radio_one" name="radio_group"/>
+                      <label for="radio_one">Boleto bancário</label>
+                    </div>
+                    <div class="icones-right w-50 text-right">
+                      <img src="img/i-cod-barra.svg">
                     </div>
                   </div>
-                </div>
-                <div class="col-sm-4 mt-2">
-                  <div class="box-info">
-                    <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
-                      <div class="form">
-                        <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
-                        <label for="text" class="label-name">
-                        <span class="content-name">
-                            <span class="icon-doc-calendario icones" aria-hidden="true"></span>
-                            <span>Data de nascimento</span>
-                        </span>
-                        </label>
+                  <div class="container p-0 mt-4">
+                    <div class="row p-0">
+                      <div class="col">
+                        <div class="box-info h-auto">
+                          <div class="d-flex">
+                            <div class="ex-radio w-50">
+                              <input type="radio" id="radio_one" name="radio_group" checked />
+                              <label for="radio_one">Débito em conta corrente</label>
+                            </div>
+                            <div class="icones-right w-50 text-right">
+                              <img src="img/i-cartao.svg">
+                            </div>
+                          </div>
+                          <hr>
+                          <div class="container p-0">
+                            <div class="row">
+                              <div class="col-sm-8">
+                                <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
+                                  <div class="form">
+                                    <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
+                                    <label for="text" class="label-name">
+                                    <span class="content-name">
+                                      <span>Dia do vencimento</span>
+                                    </span>
+                                    </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mt-3">
+                              <div class="col-sm-8">
+                                <div class="form-select">
+                                  <span class="titulo">Banco</span>
+                                  <select name="name" id="banco" class="custom-select sources" placeholder="Selecione">
+                                    <option value="">1</option>
+                                    <option value="">2</option>
+                                    <option value="">3</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row mt-3">
+                              <div class="col-sm-4">
+                                <div class="form">
+                                  <input type="text" name="ddi-2" autocomplete="off" required>
+                                  <label for="ddi-2" class="label-name">
+                                    <span class="content-name">Agência</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="form">
+                                  <input type="text" name="ddi-2" autocomplete="off" required>
+                                  <label for="ddi-2" class="label-name">
+                                    <span class="content-name">Conta</span>
+                                  </label>
+                                </div>
+                              </div>
+                              <div class="col-sm-4">
+                                <div class="form">
+                                  <input type="text" name="ddi-2" autocomplete="off" required>
+                                  <label for="ddi-2" class="label-name">
+                                    <span class="content-name">Dígito</span>
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-sm-4 mt-2">
-                  <div class="box-info">
-                    <div class="form">
-                      <input type="text" name="aposentadoria" autocomplete="off" required>
-                      <label for="aposentadoria" class="label-name">
-                          <span class="content-name">Idade de aposentadoria</span>
-                      </label>
+                <div class="col-12 mt-4 mb-2 d-block d-md-none">
+                  <div class="box-titulo resumo-da-compra">
+                    <img src="img/i-compras.svg" class="float-left mr-2">
+                    <h6 class="pt-1">Resumo da Compra</h6>
+                  </div>
+                </div>
+                <div class="col-md-6 mt-2">
+                  <div class="box-resumo">
+                    <div class="container">
+                      <div class="row">
+                        <div class="col b-resumo">
+                          <h6>Fundo escolhido</h6>
+                          <p>Mapfre corporate renda fixa prev fundo de investimento</p>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="row">
+                        <div class="col-lg-6 b-resumo">
+                          <h6>Valor da contribuição mensal</h6>
+                          <p>R$ 100</p>
+                        </div>
+                        <div class="d-none d-lg-block col-lg-1 divisoria"></div>
+                        <div class="d-sm-block d-md-block d-lg-none col-12 divisoria-responsive mb-3"></div>
+                        <div class="col-lg-5 b-resumo">
+                          <h6>Valor do aporte</h6>
+                          <p>R$ 100</p>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <!-- fim dados pessoais -->
-              <!-- produto -->
-              <div class="row mt-5">
-                <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo produto">
-                    <h6>Produto</h6>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info text-center">
-                    <h6 class="mt-2 mb-4">Qual tipo de plano gostaria de contratar?</h6>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="tipos4" id="tipo4" value="tipo4">
-                      <label for="tipo4">PGBL</label>
-                    </div>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="tipos4" id="tipo5" value="tipo5">
-                      <label for="tipo5">VGBL</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info text-center">
-                    <h6 class="mt-2 mb-4">Agora escolha o tipo de regime tributário</h6>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="regime-tributario" id="progressivo" value="progressivo">
-                      <label for="progressivo">Progressivo</label>
-                    </div>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="regime-tributario" id="regressivo" value="regressivo">
-                      <label for="regressivo">Regressivo</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- fim produto -->
+              <!-- fim forma de pagamento -->
             </div>
           </div>
           <!-- fim quarta etapa -->
