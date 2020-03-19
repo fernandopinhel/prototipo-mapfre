@@ -31,28 +31,28 @@
         <div class="container">
           <button type="button" name="button" class="btn next arrow-right-tab"></button>
           <ul class="nav nav-tabs process-model" role="tablist">
-            <li role="presentation" class="active">
+            <li role="presentation" class="active" l-1>
               <a href="#primeira-etapa" aria-controls="primeira-etapa" role="tab" data-toggle="tab">
                 <span class="border-active">
                   <span></span>
                 </span>
               </a>
             </li>
-            <li role="presentation">
+            <li role="presentation" l-2>
               <a href="#segunda-etapa" aria-controls="segunda-etapa" role="tab" data-toggle="tab">
                 <span class="border-active">
                   <span></span>
                 </span>
               </a>
             </li>
-            <li role="presentation">
+            <li role="presentation" l-3>
               <a href="#terceira-etapa" aria-controls="terceira-etapa" role="tab" data-toggle="tab">
                 <span class="border-active">
                   <span></span>
                 </span>
               </a>
             </li>
-            <li role="presentation">
+            <li role="presentation" l-4>
               <a href="#quarta-etapa" aria-controls="quarta-etapa" role="tab" data-toggle="tab">
                 <span class="border-active">
                   <span></span>
@@ -218,7 +218,7 @@
                                 </button>
                               </td>
                               <td>
-                                <div class="position-relative"><span class="i-informacao"></span></div>
+                                <div class="position-relative"><span class="i-informacao" data-toggle="modal" data-target="#exampleModalCenter"></span></div>
                                 <span class="txt-icon">Mapfre Corporate renda fixa prev fundo de investimento</span>
                               </td>
                               <td>1%</td>
@@ -806,19 +806,53 @@
     </form>
     </section>
 
-    <footer class="">
+    <footer>
       <!-- btns etapas -->
       <div class="container">
-        <div class="buttons-tab">
+        <div class="buttons-tab primeira-etapa-btn">
+          <button type="button" name="button" class="btn btn-next float-right next">Próximo</button>
+        </div>
+        <div class="buttons-tab segunda-etapa-btn d-none">
           <button type="button" name="button" class="btn btn-prev float-left prev">Anterior</button>
           <button type="button" name="button" class="btn btn-next float-right next">Próximo</button>
-          <button type="button" name="button" class="btn btn-final float-right d-none">Finalizar</button>
+        </div>
+        <div class="buttons-tab terceira-etapa-btn d-none">
+          <button type="button" name="button" class="btn btn-prev float-left prev">Anterior</button>
+          <button type="button" name="button" class="btn btn-next float-right next">Próximo</button>
+        </div>
+        <div class="buttons-tab quarta-etapa-btn d-none">
+          <button type="button" name="button" class="btn btn-prev float-left prev">Anterior</button>
+          <button type="button" name="button" class="btn btn-final float-right d-block">Finalizar pagamento</button>
         </div>
       </div>
       <!-- btns etapas -->
     </footer>
 
 
+  <!-- modal info etapa 2-->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header d-flex">
+          <h5 class="modal-title" id="exampleModalLongTitle">
+            <span class="i-informacao"></span>
+            <span>Mapfre Corporate renda fixa prev fundo de investimento</span>
+          </h5>
+        </div>
+        <div class="modal-body">
+          <p>Nas modalidades, critérios de diversificação, diversidade e demais aspectos contidos
+            na regulamentação vigente, sendo que os investimentos de renda variável representarão
+            no mínimo 0% (ZERO POR CENTO) e no máximo 49% (QUARENTA E NOVE POR CENTO) do patrimônio
+            líquido do FIE.
+          </p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- modal info etapa 2-->
 
   <!-- scripts necessarios -->
   <script src="js/jquery-3.3.1.slim.min.js"></script>

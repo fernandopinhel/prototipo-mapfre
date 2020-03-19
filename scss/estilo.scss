@@ -162,6 +162,22 @@ footer{
 .h-auto{height: auto !important}
 .w-50{width: 50%;}
 
+// modal
+
+.modal.show .modal-dialog{
+  max-width: 700px;
+}
+
+.modal-content{
+  max-width: 700px;
+}
+
+.modal-title{
+    align-items: center;
+}
+
+// fim modal
+
 // input animado
 .form {
   position: relative;

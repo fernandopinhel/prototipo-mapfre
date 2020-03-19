@@ -75,6 +75,87 @@ $('.process-model li.active::before, .process-model li.visited::before').click(f
 });
 // fim script for tab steps
 
+// btn prev e next
+
+// btn next
+$(".primeira-etapa-btn > .btn-next").click(function(){
+  $(".primeira-etapa-btn").addClass("d-none");
+  $(".segunda-etapa-btn").removeClass("d-none");
+});
+
+$(".segunda-etapa-btn > .btn-next").click(function(){
+  $(".segunda-etapa-btn").addClass("d-none");
+  $(".terceira-etapa-btn").removeClass("d-none");
+});
+
+$(".terceira-etapa-btn > .btn-next").click(function(){
+  $(".terceira-etapa-btn").addClass("d-none");
+  $(".quarta-etapa-btn").removeClass("d-none");
+});
+// fim btn next
+
+// btn prev
+$(".segunda-etapa-btn > .btn-prev").click(function(){
+  $(".segunda-etapa-btn").addClass("d-none");
+  $(".primeira-etapa-btn").removeClass("d-none");
+});
+
+$(".terceira-etapa-btn > .btn-prev").click(function(){
+  $(".terceira-etapa-btn").addClass("d-none");
+  $(".segunda-etapa-btn").removeClass("d-none");
+});
+
+$(".quarta-etapa-btn > .btn-prev").click(function(){
+  $(".quarta-etapa-btn").addClass("d-none");
+  $(".terceira-etapa-btn").removeClass("d-none");
+});
+// fim btn prev
+
+$("[l-1]").click(function(){
+  $(".primeira-etapa-btn").removeClass("d-none");
+  $(".primeira-etapa-btn").addClass("d-block");
+  $(".segunda-etapa-btn").addClass("d-none");
+  $(".segunda-etapa-btn").removeClass("d-block");
+  $(".terceira-etapa-btn").addClass("d-none");
+  $(".terceira-etapa-btn").removeClass("d-block");
+  $(".quarta-etapa-btn").addClass("d-none");
+  $(".quarta-etapa-btn").removeClass("d-block");
+});
+
+$("[l-2]").click(function(){
+  $(".segunda-etapa-btn").removeClass("d-none");
+  $(".segunda-etapa-btn").addClass("d-block");
+  $(".primeira-etapa-btn").addClass("d-none");
+  $(".primeira-etapa-btn").removeClass("d-block");
+  $(".terceira-etapa-btn").addClass("d-none");
+  $(".terceira-etapa-btn").removeClass("d-block");
+  $(".quarta-etapa-btn").addClass("d-none");
+  $(".quarta-etapa-btn").removeClass("d-block");
+});
+
+$("[l-3]").click(function(){
+  $(".terceira-etapa-btn").removeClass("d-none");
+  $(".terceira-etapa-btn").addClass("d-block");
+  $(".primeira-etapa-btn").addClass("d-none");
+  $(".primeira-etapa-btn").removeClass("d-block");
+  $(".segunda-etapa-btn").addClass("d-none");
+  $(".segunda-etapa-btn").removeClass("d-block");
+  $(".quarta-etapa-btn").removeClass("d-block");
+  $(".quarta-etapa-btn").addClass("d-none");
+});
+
+$("[l-4]").click(function(){
+  $(".quarta-etapa-btn").removeClass("d-none");
+  $(".quarta-etapa-btn").addClass("d-block");
+  $(".primeira-etapa-btn").addClass("d-none");
+  $(".primeira-etapa-btn").removeClass("d-block");
+  $(".segunda-etapa-btn").addClass("d-none");
+  $(".segunda-etapa-btn").removeClass("d-block");
+  $(".terceira-etapa-btn").addClass("d-none");
+  $(".terceira-etapa-btn").removeClass("d-block");
+});
+// fim botoes prev e next
+
 // tabela botões animados
 
 $('[sel-produto="1"]').click(function(){
