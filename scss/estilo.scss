@@ -700,12 +700,18 @@ table.table-condensed tbody tr td.day.active{
   color: #586C89;
 }
 
+.process-model li span{
+  width: 40px;
+  height: 40px;
+  top: -3px;
+}
+
 .process-model li:nth-child(2) span{
   display: block;
   position: absolute;
   background: url(../img/2-tabs.svg);
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-repeat: no-repeat;
   background-position: center;
   // -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.15);
@@ -718,8 +724,8 @@ table.table-condensed tbody tr td.day.active{
   display: block;
   position: absolute;
   background: url(../img/3-tabs.svg);
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-repeat: no-repeat;
   background-position: center;
   // -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.15);
@@ -732,8 +738,8 @@ table.table-condensed tbody tr td.day.active{
   display: block;
   position: absolute;
   background: url(../img/4-tabs.svg);
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-repeat: no-repeat;
   background-position: center;
   // -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.15);
@@ -746,8 +752,8 @@ table.table-condensed tbody tr td.day.active{
   display: block;
   position: absolute;
   background: url(../img/ativo-tabs.svg);
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-repeat: no-repeat;
   background-position: center;
   // -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.15);
@@ -760,8 +766,8 @@ table.table-condensed tbody tr td.day.active{
   display: block;
   position: absolute;
   background: url(../img/check-tabs.svg);
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-repeat: no-repeat;
   background-position: center;
   // -webkit-box-shadow: 0px 0px 12px 0px rgba(0,0,0,0.15);
