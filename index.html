@@ -1,876 +1,742 @@
 <!DOCTYPE html>
-<html lang="pt-br" dir="ltr">
+<html lang="pt-BR">
   <head>
-    <!-- meta tags obrigatorias -->
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <!-- fim meta tags obrigatorias -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; form-action 'self'; base-uri 'self'; object-src 'none'">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#e3192a">
+    <meta name="description" content="Case de UX/UI: contratação de previdência privada em 4 etapas, numa parceria fictícia entre a Amparo Previdência e o app Rango.">
+    <title>Etapa 1 de 4: Seu plano | Contratação de previdência</title>
+    <link rel="icon" type="image/svg+xml" href="img/favicon.svg">
 
-    <!-- bootstrap css -->
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <!-- fim bootstrap css -->
-
-    <!-- datepicker -->
-    <link rel="stylesheet" href="css/bootstrap-datetimepicker.min.css" media="screen">
-    <!-- fim datepicker -->
-
-    <!-- estilo css -->
-    <link rel="stylesheet" href="css/estilo.css">
-    <!-- fim estilo css -->
-
-    <title>Protótipo MAPFRE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&amp;display=swap">
+    <link rel="stylesheet" href="css/app.css">
   </head>
   <body>
-    <header>
-      <div class="logos">
-        <img src="img/logo-ifood.svg" class="mr-5">
-        <img scr="img/logo-mapfre.svg">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <header class="topo">
+      <div class="topo__marcas">
+        <span class="marca-parceiro" lang="pt-BR">rango</span>
+        <span class="topo__x" aria-hidden="true">×</span>
+        <span class="marca">
+          <img class="marca__simbolo" src="img/favicon.svg" alt="" width="28" height="28">
+          <span class="marca__nome">Amparo <span class="marca__sub">Previdência</span></span>
+        </span>
       </div>
-      <!-- menu navtabs -->
-      <div class="navtabs">
-        <div class="container">
-          <button type="button" name="button" class="btn next arrow-right-tab"></button>
-          <ul class="nav nav-tabs process-model" role="tablist">
-            <li role="presentation" class="active" l-1>
-              <a href="#primeira-etapa" aria-controls="primeira-etapa" role="tab" data-toggle="tab">
-                <span class="border-active">
-                  <span></span>
-                </span>
-              </a>
+      <span class="case-tag">Case de UX/UI · 2020</span>
+    </header>
+
+    <nav class="etapas" aria-label="Etapas da contratação">
+      <ol class="etapas__lista">
+        <li class="etapas__item">
+          <button class="etapa" type="button" data-ir="1" aria-current="step">
+            <span class="etapa__marca" aria-hidden="true"><span class="etapa__num">1</span></span>
+            <span class="etapa__rotulo">Seu plano</span>
+            <span class="etapa__estado visually-hidden">, etapa atual</span>
+          </button>
+        </li>
+        <li class="etapas__item">
+          <button class="etapa" type="button" data-ir="2" disabled>
+            <span class="etapa__marca" aria-hidden="true"><span class="etapa__num">2</span></span>
+            <span class="etapa__rotulo">Valores e fundo</span>
+            <span class="etapa__estado visually-hidden">, ainda não iniciada</span>
+          </button>
+        </li>
+        <li class="etapas__item">
+          <button class="etapa" type="button" data-ir="3" disabled>
+            <span class="etapa__marca" aria-hidden="true"><span class="etapa__num">3</span></span>
+            <span class="etapa__rotulo">Seus dados</span>
+            <span class="etapa__estado visually-hidden">, ainda não iniciada</span>
+          </button>
+        </li>
+        <li class="etapas__item">
+          <button class="etapa" type="button" data-ir="4" disabled>
+            <span class="etapa__marca" aria-hidden="true"><span class="etapa__num">4</span></span>
+            <span class="etapa__rotulo">Pagamento</span>
+            <span class="etapa__estado visually-hidden">, ainda não iniciada</span>
+          </button>
+        </li>
+      </ol>
+    </nav>
+
+    <main class="conteudo" id="conteudo">
+      <form class="container" id="contratacao" novalidate>
+
+        <div class="error-summary" id="resumo-erros" tabindex="-1" hidden>
+          <h2 class="error-summary__titulo">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-alert"/></svg>
+            <span>Falta acertar alguns itens para continuar</span>
+          </h2>
+          <ul class="error-summary__lista"></ul>
+        </div>
+
+        <!-- Etapa 1 ---------------------------------------------------- -->
+        <section class="step" id="etapa-1" data-etapa="1" data-titulo="Seu plano" aria-labelledby="etapa-1-titulo">
+          <div class="step__cabecalho">
+            <p class="step__contador">Etapa 1 de 4</p>
+            <h1 class="step__titulo" id="etapa-1-titulo" tabindex="-1">Vamos montar o seu plano</h1>
+            <p class="step__intro">Em poucos minutos você contrata sua previdência. Todos os campos são obrigatórios, a não ser os marcados como opcionais.</p>
+          </div>
+
+          <div class="aviso-case">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-sparkle"/></svg>
+            <p><strong>Este é um case de portfólio.</strong> Amparo Previdência e Rango são marcas fictícias, e nada do que você digita sai do seu navegador.</p>
+            <button class="btn btn--contorno btn--sm" type="button" id="preencher-exemplo">Preencher com dados de exemplo</button>
+          </div>
+
+          <h2 class="secao-titulo">Dados pessoais</h2>
+          <div class="grade">
+            <div class="col-4">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="cpf" name="cpf" type="text" inputmode="numeric" autocomplete="off" placeholder=" "
+                         maxlength="14" data-mask="cpf" data-validate="cpf" required>
+                  <label class="flutuante__rotulo" for="cpf">CPF</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="nascimento" name="nascimento" type="text" inputmode="numeric" autocomplete="bday" placeholder=" "
+                         maxlength="10" data-mask="data" data-validate="nascimento" required aria-describedby="nascimento-dica">
+                  <label class="flutuante__rotulo" for="nascimento">Data de nascimento</label>
+                </div>
+                <p class="dica" id="nascimento-dica">Dia, mês e ano, assim: 25/08/1990.</p>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="aposentadoria" name="aposentadoria" type="text" inputmode="numeric" autocomplete="off" placeholder=" "
+                         maxlength="2" data-mask="digitos" data-validate="aposentadoria" required aria-describedby="aposentadoria-dica">
+                  <label class="flutuante__rotulo" for="aposentadoria">Idade de aposentadoria</label>
+                </div>
+                <p class="dica" id="aposentadoria-dica">Com quantos anos você quer começar a receber.</p>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="secao-titulo">Produto</h2>
+          <div class="grade">
+            <div class="col-6">
+              <fieldset class="cartao cartao--escolha">
+                <legend class="escolha__pergunta">Qual tipo de plano gostaria de contratar?</legend>
+                <div class="blocos">
+                  <input class="bloco__input visually-hidden" type="radio" name="plano" id="plano-pgbl" value="PGBL" required>
+                  <label class="bloco" for="plano-pgbl"><strong>PGBL</strong><span>Para quem faz a declaração completa do IR</span></label>
+                  <input class="bloco__input visually-hidden" type="radio" name="plano" id="plano-vgbl" value="VGBL">
+                  <label class="bloco" for="plano-vgbl"><strong>VGBL</strong><span>Para quem declara no simplificado ou é isento</span></label>
+                </div>
+                <button class="link-ajuda" type="button" data-abrir="dialogo-plano">
+                  <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-help"/></svg>
+                  Qual é a diferença?
+                </button>
+              </fieldset>
+            </div>
+            <div class="col-6">
+              <fieldset class="cartao cartao--escolha">
+                <legend class="escolha__pergunta">Agora escolha o tipo de regime tributário</legend>
+                <div class="blocos">
+                  <input class="bloco__input visually-hidden" type="radio" name="regime" id="regime-progressivo" value="Progressivo" required>
+                  <label class="bloco" for="regime-progressivo"><strong>Progressivo</strong><span>Imposto pela tabela do IR, de 0% a 27,5%</span></label>
+                  <input class="bloco__input visually-hidden" type="radio" name="regime" id="regime-regressivo" value="Regressivo">
+                  <label class="bloco" for="regime-regressivo"><strong>Regressivo</strong><span>Imposto cai com o tempo, até 10%</span></label>
+                </div>
+                <button class="link-ajuda" type="button" data-abrir="dialogo-regime">
+                  <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-help"/></svg>
+                  Como escolher o regime?
+                </button>
+              </fieldset>
+            </div>
+          </div>
+        </section>
+
+        <!-- Etapa 2 ---------------------------------------------------- -->
+        <section class="step" id="etapa-2" data-etapa="2" data-titulo="Valores e fundo" aria-labelledby="etapa-2-titulo" hidden>
+          <div class="step__cabecalho">
+            <p class="step__contador">Etapa 2 de 4</p>
+            <h1 class="step__titulo" id="etapa-2-titulo" tabindex="-1">Quanto investir e onde</h1>
+            <p class="step__intro">Você pode fazer contribuições mensais, um aporte inicial ou os dois. Cada fundo tem um valor mínimo de entrada.</p>
+          </div>
+
+          <h2 class="secao-titulo">Valores</h2>
+          <div class="grade">
+            <div class="col-6">
+              <div class="cartao">
+                <div class="flutuante flutuante--moeda">
+                  <input class="flutuante__input" id="mensal" name="mensal" type="text" inputmode="numeric" autocomplete="off" placeholder=" "
+                         maxlength="12" data-mask="moeda" data-validate="valores" aria-describedby="mensal-dica">
+                  <label class="flutuante__rotulo" for="mensal">Contribuição mensal <span class="opt">(opcional)</span></label>
+                </div>
+                <p class="dica" id="mensal-dica">Em reais. Deixe em branco se for fazer só o aporte.</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="cartao">
+                <div class="flutuante flutuante--moeda">
+                  <input class="flutuante__input" id="aporte" name="aporte" type="text" inputmode="numeric" autocomplete="off" placeholder=" "
+                         maxlength="14" data-mask="moeda" data-validate="valores" aria-describedby="aporte-dica">
+                  <label class="flutuante__rotulo" for="aporte">Valor do aporte inicial <span class="opt">(opcional)</span></label>
+                </div>
+                <p class="dica" id="aporte-dica">Um valor único, cobrado junto com a primeira mensalidade.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="secao-cabecalho">
+            <h2 class="secao-titulo" id="fundos-titulo">Fundos disponíveis</h2>
+            <fieldset class="filtro">
+              <legend class="visually-hidden">Filtrar fundos por perfil</legend>
+              <input class="filtro__input visually-hidden" type="radio" name="perfil" id="perfil-todos" value="" checked>
+              <label class="filtro__opcao" for="perfil-todos">Todos</label>
+              <input class="filtro__input visually-hidden" type="radio" name="perfil" id="perfil-conservador" value="Conservador">
+              <label class="filtro__opcao" for="perfil-conservador">Conservador</label>
+              <input class="filtro__input visually-hidden" type="radio" name="perfil" id="perfil-moderado" value="Moderado">
+              <label class="filtro__opcao" for="perfil-moderado">Moderado</label>
+              <input class="filtro__input visually-hidden" type="radio" name="perfil" id="perfil-arrojado" value="Arrojado">
+              <label class="filtro__opcao" for="perfil-arrojado">Arrojado</label>
+            </fieldset>
+          </div>
+
+          <fieldset class="fundos" id="fundos">
+            <legend class="visually-hidden">Escolha um fundo</legend>
+            <div class="tabela-fundos">
+              <table class="tabela">
+                <caption class="visually-hidden">Fundos disponíveis, com taxas e regra de entrada</caption>
+                <thead>
+                  <tr>
+                    <th scope="col"><span class="visually-hidden">Escolha</span></th>
+                    <th scope="col">Nome do fundo</th>
+                    <th scope="col">Perfil</th>
+                    <th scope="col">Taxa adm. máx.</th>
+                    <th scope="col">Taxa de performance</th>
+                    <th scope="col">Regra de entrada</th>
+                  </tr>
+                </thead>
+                <tbody id="fundos-corpo"></tbody>
+              </table>
+            </div>
+          </fieldset>
+
+          <nav class="paginacao" id="paginacao" aria-label="Páginas da lista de fundos"></nav>
+        </section>
+
+        <!-- Etapa 3 ---------------------------------------------------- -->
+        <section class="step" id="etapa-3" data-etapa="3" data-titulo="Seus dados" aria-labelledby="etapa-3-titulo" hidden>
+          <div class="step__cabecalho">
+            <p class="step__contador">Etapa 3 de 4</p>
+            <h1 class="step__titulo" id="etapa-3-titulo" tabindex="-1">Agora, um pouco sobre você</h1>
+            <p class="step__intro">Esses dados vão para a proposta de contratação, do jeito que estão no seu documento.</p>
+          </div>
+
+          <h2 class="secao-titulo">Dados do proponente</h2>
+          <div class="grade">
+            <div class="col-6">
+              <fieldset class="cartao cartao--escolha">
+                <legend class="escolha__pergunta">Sexo</legend>
+                <div class="blocos">
+                  <input class="bloco__input visually-hidden" type="radio" name="sexo" id="sexo-fem" value="Feminino" required aria-describedby="sexo-dica">
+                  <label class="bloco bloco--simples" for="sexo-fem"><strong>Feminino</strong></label>
+                  <input class="bloco__input visually-hidden" type="radio" name="sexo" id="sexo-masc" value="Masculino" aria-describedby="sexo-dica">
+                  <label class="bloco bloco--simples" for="sexo-masc"><strong>Masculino</strong></label>
+                </div>
+                <p class="dica dica--centro" id="sexo-dica">Usado na tábua atuarial que calcula a renda.</p>
+              </fieldset>
+            </div>
+            <div class="col-6">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="nome" name="nome" type="text" autocomplete="name" placeholder=" "
+                         maxlength="80" data-validate="nome" required>
+                  <label class="flutuante__rotulo" for="nome">Nome completo</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="cartao">
+                <label class="rotulo" for="estado-civil">Estado civil</label>
+                <select class="select" id="estado-civil" name="estadoCivil" required data-opcoes="estadosCivis"></select>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="cartao">
+                <div class="flutuante flutuante--moeda">
+                  <input class="flutuante__input" id="renda" name="renda" type="text" inputmode="numeric" autocomplete="off" placeholder=" "
+                         maxlength="14" data-mask="moeda" data-validate="renda" required>
+                  <label class="flutuante__rotulo" for="renda">Renda mensal</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="cartao">
+                <label class="rotulo" for="profissao">Profissão</label>
+                <select class="select" id="profissao" name="profissao" required data-opcoes="profissoes"></select>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="secao-titulo">Documentação</h2>
+          <div class="grade">
+            <div class="col-6">
+              <div class="cartao">
+                <label class="rotulo" for="doc-tipo">Documento de identificação</label>
+                <select class="select" id="doc-tipo" name="docTipo" required data-opcoes="documentos"></select>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="doc-numero" name="docNumero" type="text" autocomplete="off" placeholder=" "
+                         maxlength="20" data-mask="documento" data-validate="documento" required>
+                  <label class="flutuante__rotulo" for="doc-numero">Nº do documento</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="doc-expedicao" name="docExpedicao" type="text" inputmode="numeric" autocomplete="off" placeholder=" "
+                         maxlength="10" data-mask="data" data-validate="expedicao" required aria-describedby="doc-expedicao-dica">
+                  <label class="flutuante__rotulo" for="doc-expedicao">Data de expedição</label>
+                </div>
+                <p class="dica" id="doc-expedicao-dica">Fica na frente ou no verso do documento.</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="cartao">
+                <label class="rotulo" for="doc-orgao">Órgão emissor</label>
+                <select class="select" id="doc-orgao" name="docOrgao" required data-opcoes="orgaos"></select>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="secao-titulo">Endereço residencial</h2>
+          <div class="grade">
+            <div class="col-3">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="cep" name="cep" type="text" inputmode="numeric" autocomplete="postal-code" placeholder=" "
+                         maxlength="9" data-mask="cep" data-validate="cep" required>
+                  <label class="flutuante__rotulo" for="cep">CEP</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="logradouro" name="logradouro" type="text" autocomplete="address-line1" placeholder=" "
+                         maxlength="100" required>
+                  <label class="flutuante__rotulo" for="logradouro">Logradouro</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="numero" name="numero" type="text" autocomplete="off" placeholder=" "
+                         maxlength="10" required>
+                  <label class="flutuante__rotulo" for="numero">Número</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="complemento" name="complemento" type="text" autocomplete="address-line2" placeholder=" "
+                         maxlength="60">
+                  <label class="flutuante__rotulo" for="complemento">Complemento <span class="opt">(opcional)</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="bairro" name="bairro" type="text" autocomplete="off" placeholder=" "
+                         maxlength="60" required>
+                  <label class="flutuante__rotulo" for="bairro">Bairro</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-9">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="cidade" name="cidade" type="text" autocomplete="address-level2" placeholder=" "
+                         maxlength="60" required>
+                  <label class="flutuante__rotulo" for="cidade">Cidade</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="cartao">
+                <label class="rotulo" for="uf">UF</label>
+                <select class="select" id="uf" name="uf" required autocomplete="address-level1" data-opcoes="ufs"></select>
+              </div>
+            </div>
+          </div>
+
+          <h2 class="secao-titulo">Contato</h2>
+          <div class="grade">
+            <div class="col-6">
+              <div class="cartao">
+                <label class="rotulo" for="pais">País de residência</label>
+                <select class="select" id="pais" name="pais" required autocomplete="country-name" data-opcoes="paises"></select>
+              </div>
+            </div>
+            <div class="col-6 col--vazia" aria-hidden="true"></div>
+
+            <div class="col-2">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="cel-ddi" name="celDdi" type="text" inputmode="numeric" autocomplete="tel-country-code" placeholder=" "
+                         maxlength="3" data-mask="digitos" data-validate="ddi" required>
+                  <label class="flutuante__rotulo" for="cel-ddi">DDI</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="cel-ddd" name="celDdd" type="text" inputmode="numeric" autocomplete="tel-area-code" placeholder=" "
+                         maxlength="2" data-mask="digitos" data-validate="ddd" required>
+                  <label class="flutuante__rotulo" for="cel-ddd">DDD</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-5">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="cel-numero" name="celNumero" type="tel" inputmode="numeric" autocomplete="tel-local" placeholder=" "
+                         maxlength="10" data-mask="telefone" data-validate="celular" required>
+                  <label class="flutuante__rotulo" for="cel-numero">Celular</label>
+                </div>
+              </div>
+            </div>
+            <div class="col-3 col--vazia" aria-hidden="true"></div>
+
+            <div class="col-2">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="tel-ddi" name="telDdi" type="text" inputmode="numeric" autocomplete="off" placeholder=" "
+                         maxlength="3" data-mask="digitos" data-validate="ddi" data-grupo="tel">
+                  <label class="flutuante__rotulo" for="tel-ddi">DDI <span class="opt">(opcional)</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="tel-ddd" name="telDdd" type="text" inputmode="numeric" autocomplete="off" placeholder=" "
+                         maxlength="2" data-mask="digitos" data-validate="ddd" data-grupo="tel">
+                  <label class="flutuante__rotulo" for="tel-ddd">DDD <span class="opt">(opcional)</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="col-5">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="tel-numero" name="telNumero" type="tel" inputmode="numeric" autocomplete="off" placeholder=" "
+                         maxlength="10" data-mask="telefone" data-validate="telefone" data-grupo="tel">
+                  <label class="flutuante__rotulo" for="tel-numero">Outro telefone <span class="opt">(opcional)</span></label>
+                </div>
+              </div>
+            </div>
+            <div class="col-3 col--vazia" aria-hidden="true"></div>
+
+            <div class="col-6">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="email" name="email" type="email" autocomplete="email" placeholder=" "
+                         maxlength="100" data-validate="email" required aria-describedby="email-dica">
+                  <label class="flutuante__rotulo" for="email">E-mail</label>
+                </div>
+                <p class="dica" id="email-dica">É para ele que vai a sua proposta.</p>
+              </div>
+            </div>
+            <div class="col-6">
+              <div class="cartao">
+                <div class="flutuante">
+                  <input class="flutuante__input" id="email-confirma" name="emailConfirma" type="email" autocomplete="off" placeholder=" "
+                         maxlength="100" data-validate="confirmaEmail" required>
+                  <label class="flutuante__rotulo" for="email-confirma">Confirme o e-mail</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Etapa 4 ---------------------------------------------------- -->
+        <section class="step" id="etapa-4" data-etapa="4" data-titulo="Pagamento" aria-labelledby="etapa-4-titulo" hidden>
+          <div class="step__cabecalho">
+            <p class="step__contador">Etapa 4 de 4</p>
+            <h1 class="step__titulo" id="etapa-4-titulo" tabindex="-1">Falta só o pagamento</h1>
+            <p class="step__intro">Confira o resumo ao lado e escolha como quer pagar.</p>
+          </div>
+
+          <div class="grade grade--pagamento">
+            <div class="col-6">
+              <h2 class="secao-titulo" id="forma-titulo">Forma de pagamento</h2>
+              <fieldset class="formas" aria-labelledby="forma-titulo">
+                <div class="cartao cartao--opcao">
+                  <div class="opcao">
+                    <input class="opcao__input" type="radio" name="formaPagamento" id="forma-boleto" value="Boleto bancário" required>
+                    <label class="opcao__rotulo" for="forma-boleto">Boleto bancário</label>
+                    <svg class="icon opcao__icone" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-barcode"/></svg>
+                  </div>
+                </div>
+                <div class="cartao cartao--opcao">
+                  <div class="opcao">
+                    <input class="opcao__input" type="radio" name="formaPagamento" id="forma-debito" value="Débito em conta corrente" aria-controls="dados-debito">
+                    <label class="opcao__rotulo" for="forma-debito">Débito em conta corrente</label>
+                    <svg class="icon opcao__icone" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-card"/></svg>
+                  </div>
+                  <div class="opcao__extra" id="dados-debito" hidden>
+                    <div class="grade grade--interna">
+                      <div class="col-12">
+                        <label class="rotulo" for="banco">Banco</label>
+                        <select class="select" id="banco" name="banco" required data-opcoes="bancos"></select>
+                      </div>
+                      <div class="col-5">
+                        <div class="flutuante">
+                          <input class="flutuante__input" id="agencia" name="agencia" type="text" inputmode="numeric" autocomplete="off" placeholder=" "
+                                 maxlength="4" data-mask="digitos" data-validate="agencia" required>
+                          <label class="flutuante__rotulo" for="agencia">Agência</label>
+                        </div>
+                      </div>
+                      <div class="col-5">
+                        <div class="flutuante">
+                          <input class="flutuante__input" id="conta" name="conta" type="text" inputmode="numeric" autocomplete="off" placeholder=" "
+                                 maxlength="12" data-mask="digitos" data-validate="conta" required>
+                          <label class="flutuante__rotulo" for="conta">Conta</label>
+                        </div>
+                      </div>
+                      <div class="col-2">
+                        <div class="flutuante">
+                          <input class="flutuante__input" id="digito" name="digito" type="text" autocomplete="off" placeholder=" "
+                                 maxlength="1" data-mask="digito" required data-nome="Dígito da conta">
+                          <label class="flutuante__rotulo" for="digito">Dígito</label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
+
+              <div class="cartao cartao--compacto">
+                <label class="rotulo" for="vencimento">Dia do vencimento</label>
+                <select class="select" id="vencimento" name="vencimento" required aria-describedby="vencimento-dica" data-opcoes="vencimentos"></select>
+                <p class="dica" id="vencimento-dica">A primeira cobrança vence no próximo dia escolhido, depois de 5 dias.</p>
+              </div>
+
+              <div class="aceite">
+                <input class="aceite__input" type="checkbox" id="aceite" name="aceite" required data-nome="Aceite do regulamento">
+                <label class="aceite__rotulo" for="aceite">Li e aceito o regulamento do plano e as condições da proposta.</label>
+                <button class="link-ajuda link-ajuda--inline" type="button" data-abrir="dialogo-regulamento">Ler o regulamento</button>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <h2 class="secao-titulo secao-titulo--icone" id="resumo-titulo">
+                <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-cart"/></svg>
+                Resumo da compra
+              </h2>
+              <aside class="resumo" aria-labelledby="resumo-titulo">
+                <div class="resumo__bloco">
+                  <h3 class="resumo__rotulo">Fundo escolhido</h3>
+                  <p class="resumo__valor resumo__valor--destaque" data-resumo="fundo">—</p>
+                  <p class="resumo__meta" data-resumo="fundo-meta"></p>
+                </div>
+                <div class="resumo__bloco resumo__bloco--duplo">
+                  <div>
+                    <h3 class="resumo__rotulo">Valor da contribuição mensal</h3>
+                    <p class="resumo__valor" data-resumo="mensal">—</p>
+                  </div>
+                  <div>
+                    <h3 class="resumo__rotulo">Valor do aporte</h3>
+                    <p class="resumo__valor" data-resumo="aporte">—</p>
+                  </div>
+                </div>
+                <div class="resumo__bloco resumo__bloco--duplo">
+                  <div>
+                    <h3 class="resumo__rotulo">Plano</h3>
+                    <p class="resumo__valor" data-resumo="plano">—</p>
+                  </div>
+                  <div>
+                    <h3 class="resumo__rotulo">Aposentadoria</h3>
+                    <p class="resumo__valor" data-resumo="aposentadoria">—</p>
+                  </div>
+                </div>
+                <div class="resumo__total">
+                  <span>Primeira cobrança</span>
+                  <strong data-resumo="total">—</strong>
+                </div>
+                <p class="resumo__alterar">
+                  <button class="link-ajuda link-ajuda--inline" type="button" data-ir="1">
+                    <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-pencil"/></svg>
+                    Alterar plano
+                  </button>
+                  <button class="link-ajuda link-ajuda--inline" type="button" data-ir="2">
+                    <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-pencil"/></svg>
+                    Alterar valores e fundo
+                  </button>
+                </p>
+              </aside>
+            </div>
+          </div>
+        </section>
+      </form>
+
+      <!-- Sucesso ------------------------------------------------------ -->
+      <section class="container sucesso" id="sucesso" aria-labelledby="sucesso-titulo" hidden>
+        <div class="sucesso__cartao">
+          <span class="sucesso__icone" aria-hidden="true">
+            <svg class="icon" focusable="false"><use href="img/icons.svg#i-check"/></svg>
+          </span>
+          <h1 class="sucesso__titulo" id="sucesso-titulo" tabindex="-1">Pronto, sua previdência foi contratada!</h1>
+          <p>Guarde o número da sua proposta:</p>
+          <p class="protocolo" id="protocolo"></p>
+          <ul class="sucesso__passos">
+            <li>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-mail"/></svg>
+              <span>A proposta e o regulamento vão para <strong id="sucesso-email"></strong>.</span>
             </li>
-            <li role="presentation" l-2>
-              <a href="#segunda-etapa" aria-controls="segunda-etapa" role="tab" data-toggle="tab">
-                <span class="border-active">
-                  <span></span>
-                </span>
-              </a>
+            <li>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-calendar"/></svg>
+              <span id="sucesso-cobranca"></span>
             </li>
-            <li role="presentation" l-3>
-              <a href="#terceira-etapa" aria-controls="terceira-etapa" role="tab" data-toggle="tab">
-                <span class="border-active">
-                  <span></span>
-                </span>
-              </a>
-            </li>
-            <li role="presentation" l-4>
-              <a href="#quarta-etapa" aria-controls="quarta-etapa" role="tab" data-toggle="tab">
-                <span class="border-active">
-                  <span></span>
-                </span>
-              </a>
+            <li>
+              <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-chart"/></svg>
+              <span>Você acompanha o saldo e muda de fundo quando quiser, direto no app.</span>
             </li>
           </ul>
-          <button type="button" name="button" class="btn prev arrow-left-tab"></button>
+          <button class="btn btn--primario" type="button" id="nova-contratacao">
+            <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-refresh"/></svg>
+            Fazer uma nova contratação
+          </button>
         </div>
+      </section>
+
+      <p class="creditos">
+        Case de portfólio de <a href="https://fernandopinhel.com.br">Fernando Pinhel</a>.
+        Amparo Previdência, Rango, fundos e taxas são fictícios.
+      </p>
+    </main>
+
+    <footer class="acoes" id="acoes">
+      <div class="container acoes__linha">
+        <button class="btn btn--contorno" type="button" id="btn-anterior" hidden>
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-arrow-left"/></svg>
+          Anterior
+        </button>
+        <p class="acoes__progresso" id="acoes-progresso" aria-hidden="true">Etapa 1 de 4</p>
+        <button class="btn btn--primario" type="button" id="btn-proximo">
+          Próximo
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-arrow-right"/></svg>
+        </button>
+        <button class="btn btn--sucesso" type="button" id="btn-finalizar" hidden>
+          Finalizar pagamento
+          <svg class="icon" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-check"/></svg>
+        </button>
       </div>
-      <!-- fim menu navtabs -->
-    </header>
-    <form>
-      <section class="process-tabs">
-        <div class="tab-content">
-          <!-- primeira etapa -->
-          <div role="tabpanel" class="tab-pane active" id="primeira-etapa">
-            <div class="container primeira-etapa">
-              <!-- dados pessoais -->
-              <div class="row">
-                <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo dados-pessoais">
-                    <h6>Dados Pessoais</h6>
-                  </div>
-                </div>
-                <div class="col-sm-4 mt-2">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="cpf" onkeypress="$(this).mask('000.000.000-00');" autocomplete="off" required>
-                      <label for="cpf" class="label-name">
-                          <span class="content-name">CPF</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4 mt-2">
-                  <div class="box-info d-flex">
-                    <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
-                      <div class="form">
-                        <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
-                        <label for="text" class="label-name">
-                        <span class="content-name">
-                          <span>Data de nascimento</span>
-                        </span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4 mt-2">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="aposentadoria" autocomplete="off" required>
-                      <label for="aposentadoria" class="label-name">
-                          <span class="content-name">Idade de aposentadoria</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- fim dados pessoais -->
-              <!-- produto -->
-              <div class="row mt-5">
-                <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo produto">
-                    <h6>Produto</h6>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info text-center">
-                    <h6 class="mt-2 mb-3">Qual tipo de plano gostaria de contratar?</h6>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="tipo-produto" id="pgbl" value="pgbl">
-                      <label for="pgbl">PGBL</label>
-                    </div>
-                    <div class="d-inline">
-                      <input class="radio-config" type="radio" name="tipo-produto" id="vgbl" value="vgbl">
-                      <label for="vgbl">VGBL</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info text-center">
-                    <h6 class="mt-2 mb-3">Agora escolha o tipo de regime tributário</h6>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="regime-tributario" id="progressivo" value="progressivo">
-                      <label for="progressivo">Progressivo</label>
-                    </div>
-                    <div class="d-inline">
-                      <input class="radio-config" type="radio" name="regime-tributario" id="regressivo" value="regressivo">
-                      <label for="regressivo">Regressivo</label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- fim produto -->
-            </div>
-          </div>
-          <!-- fim primeira etapa -->
-
-          <!-- segunda etapa -->
-          <div role="tabpanel" class="tab-pane" id="segunda-etapa">
-            <div class="container segunda-etapa">
-              <!-- valores -->
-              <div class="row">
-                <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo valores">
-                    <h6>Valores</h6>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="cpf" onkeypress="$(this).mask('000.000.000-00');" autocomplete="off" required>
-                      <label for="cpf" class="label-name">
-                          <span class="content-name">Quanto você deseja contribuir mensalmente (R$)?</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="aposentadoria" autocomplete="off" required>
-                      <label for="aposentadoria" class="label-name">
-                          <span class="content-name">Valor do Aporte Inicial (R$)</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- fim valores -->
-              <!-- fundos disponiveis -->
-              <div class="row mt-5">
-                <div class="col-12 mt-2 mb-4">
-                  <div class="box-titulo fundos-disponiveis">
-                    <h6>Fundos Disponíveis</h6>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="row">
-                    <div class="col">
-                      <div class="table-responsive">
-                        <table class="table">
-                          <thead>
-                            <tr>
-                              <th></th>
-                              <th>Nome do fundo</th>
-                              <th>Taxa Adm Máx</th>
-                              <th>Taxa de Performance</th>
-                              <th>Regra de Entrada</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>
-                                <button class="sel-produto" sel-produto="1">Selecionar</button>
-                                <button class="sel-produto btn-sel d-none" sel-produto="escolhido-1">
-                                  <div class="position-relative">
-                                    <span class="i-check"></span>
-                                    <span class="txt-icon-2">Escolhido</div>
-                                  </div>
-                                </button>
-                              </td>
-                              <td>
-                                <div class="position-relative"><span class="i-informacao" data-toggle="modal" data-target="#exampleModalCenter"></span></div>
-                                <span class="txt-icon">Mapfre Corporate renda fixa prev fundo de investimento</span>
-                              </td>
-                              <td>1%</td>
-                              <td>Não</td>
-                              <td>R$ 100,00 (contribuições mensais) ou R$ 1.200,00 (aporte/portabilidade)</td>
-                            </tr>
-                            <tr class="separator">
-                              <td colspan="5"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <button class="sel-produto" sel-produto="2">Selecionar</button>
-                                <button class="sel-produto btn-sel d-none" sel-produto="escolhido-2">
-                                  <div class="position-relative">
-                                    <span class="i-check"></span>
-                                    <span class="txt-icon-2">Escolhido</div>
-                                  </div>
-                                </button>
-                              </td>
-                              <td>
-                                <div class="position-relative"><span class="i-informacao"></span></div>
-                                <span class="txt-icon">Mapfre Corporate renda fixa prev fundo de investimento</span>
-                              </td>
-                              <td>1%</td>
-                              <td>Não</td>
-                              <td>R$ 100,00 (contribuições mensais) ou R$ 1.200,00 (aporte/portabilidade)</td>
-                            </tr>
-                            <tr class="separator">
-                              <td colspan="5"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <button class="sel-produto" sel-produto="3">Selecionar</button>
-                                <button class="sel-produto btn-sel d-none" sel-produto="escolhido-3">
-                                  <div class="position-relative">
-                                    <span class="i-check"></span>
-                                    <span class="txt-icon-2">Escolhido</div>
-                                  </div>
-                                </button>
-                              </td>
-                              <td>
-                                <div class="position-relative"><span class="i-informacao"></span></div>
-                                <span class="txt-icon">Mapfre Corporate renda fixa prev fundo de investimento</span>
-                              </td>
-                              <td>1%</td>
-                              <td>Não</td>
-                              <td>R$ 100,00 (contribuições mensais) ou R$ 1.200,00 (aporte/portabilidade)</td>
-                            </tr>
-                            <tr class="separator">
-                              <td colspan="5"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <button class="sel-produto" sel-produto="4">Selecionar</button>
-                                <button class="sel-produto btn-sel d-none" sel-produto="escolhido-4">
-                                  <div class="position-relative">
-                                    <span class="i-check"></span>
-                                    <span class="txt-icon-2">Escolhido</div>
-                                  </div>
-                                </button>
-                              </td>
-                              <td>
-                                <div class="position-relative"><span class="i-informacao"></span></div>
-                                <span class="txt-icon">Mapfre Corporate renda fixa prev fundo de investimento</span>
-                              </td>
-                              <td>1%</td>
-                              <td>Não</td>
-                              <td>R$ 100,00 (contribuições mensais) ou R$ 1.200,00 (aporte/portabilidade)</td>
-                            </tr>
-                            <tr class="separator">
-                                <td colspan="5"></td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <button class="sel-produto" sel-produto="5">Selecionar</button>
-                                <button class="sel-produto btn-sel d-none" sel-produto="escolhido-5">
-                                  <div class="position-relative">
-                                    <span class="i-check"></span>
-                                    <span class="txt-icon-2">Escolhido</div>
-                                  </div>
-                                </button>
-                              </td>
-                              <td>
-                                <div class="position-relative"><span class="i-informacao"></span></div>
-                                <span class="txt-icon">Mapfre Corporate renda fixa prev fundo de investimento</span>
-                              </td>
-                              <td>1%</td>
-                              <td>Não</td>
-                              <td>R$ 100,00 (contribuições mensais) ou R$ 1.200,00 (aporte/portabilidade)</td>
-                            </tr>
-                          </tbody>
-                        </table>
-                      </div>
-                      <ul class="pagination">
-                        <li>
-                          <a href="#" class="prev">
-                          <span class="two-arrow-left"></span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" class="prev">
-                            <span class="one-arrow-left"></span>
-                          </a>
-                        </li>
-                        <li><a href="#">1</a></li>
-                        <li><a href="#" class="active">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                          <a href="#" class="next">
-                            <span class="one-arrow-right"></span>
-                          </a>
-                        </li>
-                        <li>
-                          <a href="#" class="next">
-                            <span class="two-arrow-right" aria-hidden="true"></span>
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- fim produto -->
-            </div>
-          </div>
-          <!-- fim segunda etapa -->
-
-          <!-- terceira etapa -->
-          <div role="tabpanel" class="tab-pane fade" id="terceira-etapa">
-            <div class="container terceira-etapa">
-              <!-- dados do proponente -->
-              <div class="row">
-                <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo dados-pessoais">
-                    <h6>Dados do proponente</h6>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info text-center">
-                    <h6 class="mt-2 mb-3">Sexo</h6>
-                    <div class="d-inline mr-3">
-                      <input class="radio-config" type="radio" name="sexo" id="sexo-fem" value="sexo-fem">
-                      <label for="sexo-fem">Feminino</label>
-                    </div>
-                    <div class="d-inline">
-                      <input class="radio-config" type="radio" name="sexo" id="sexo-masc" value="sexo-masc">
-                      <label for="sexo-masc">Masculino</label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="nome-completo" autocomplete="off" required>
-                      <label for="nome-completo" class="label-name">
-                          <span class="content-name">Nome completo</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form-select">
-                      <span class="titulo">Estado civil</span>
-                      <select name="name" id="estado-civil" class="custom-select sources" placeholder="Selecione">
-                        <option value="">Solteiro(a)</option>
-                        <option value="">Casado(a)</option>
-                        <option value="">Divorciado(a)</option>
-                        <option value="">Viúvo(a)</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="renda" autocomplete="off" required>
-                      <label for="renda" class="label-name">
-                          <span class="content-name">Renda</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form-select">
-                      <span class="titulo">Profissão</span>
-                      <select name="name" id="profissao" class="custom-select sources" placeholder="Selecione">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- fim dados proponente -->
-              <!-- documentacao -->
-              <div class="row mt-5">
-                <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo produto">
-                    <h6>Documentação</h6>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info d-flex">
-                    <div class="form-select">
-                      <span class="titulo">Natureza doc. identificação</span>
-                      <select name="name" id="nat-doc" class="custom-select sources" placeholder="Selecione">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-2">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="n-doc-id" autocomplete="off" required>
-                      <label for="n-doc-id" class="label-name">
-                          <span class="content-name">N doc. identificação</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
-                      <div class="form">
-                        <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
-                        <label for="text" class="label-name">
-                        <span class="content-name">
-                          <span>Data de expedição</span>
-                        </span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form-select">
-                      <span class="titulo">Órgão emissor</span>
-                      <select name="name" id="nat-doc" class="custom-select sources" placeholder="Selecione">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- fim documentacao -->
-              <!-- endereco residencial -->
-              <div class="row mt-5">
-                <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo produto">
-                    <h6>Endereço Residencial</h6>
-                  </div>
-                </div>
-                <div class="col-sm-3 mt-2">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="cep" onkeypress="$(this).mask('00.000.000');" autocomplete="off" required>
-                      <label for="cep" class="label-name">
-                        <span class="content-name">CEP</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-9 mt-2">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="logradouro" autocomplete="off" required>
-                      <label for="logradouro" class="label-name">
-                        <span class="content-name">Logradouro</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-2 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="numero" autocomplete="off" required>
-                      <label for="numero" class="label-name">
-                        <span class="content-name">Número</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-4 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="complemento" autocomplete="off" required>
-                      <label for="complemento" class="label-name">
-                        <span class="content-name">Complemento</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="bairro" autocomplete="off" required>
-                      <label for="bairro" class="label-name">
-                        <span class="content-name">Bairro</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-9 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="cidade" autocomplete="off" required>
-                      <label for="cidade" class="label-name">
-                        <span class="content-name">Cidade</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-3 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form-select">
-                      <span class="titulo">UF</span>
-                      <select name="name" id="uf" class="custom-select sources" placeholder="Selecione">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div class="row mt-5">
-                <div class="col-12 mt-2 mb-2">
-                  <div class="box-titulo produto">
-                    <h6>Endereço Residencial</h6>
-                  </div>
-                </div>
-                <div class="col-sm-7 mt-2">
-                  <div class="box-info d-flex">
-                    <div class="form-select">
-                      <span class="titulo">País</span>
-                      <select name="name" id="pais" class="custom-select sources" placeholder="Selecione">
-                        <option value="">1</option>
-                        <option value="">2</option>
-                        <option value="">3</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-                <div class="container p-0">
-                  <div class="row m-0">
-                  <div class="col-sm-2 mt-4">
-                    <div class="box-info d-flex">
-                      <div class="form">
-                        <input type="text" name="ddi-1" autocomplete="off" required>
-                        <label for="ddi-1" class="label-name">
-                          <span class="content-name">DDI</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-2 mt-4">
-                    <div class="box-info d-flex">
-                      <div class="form">
-                        <input type="text" name="ddd-1" autocomplete="off" required>
-                        <label for="ddd-1" class="label-name">
-                          <span class="content-name">DDD</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-5 mt-4">
-                    <div class="box-info d-flex">
-                      <div class="form">
-                        <input type="text" name="tel-celular-1" autocomplete="off" required>
-                        <label for="tel-celular-1" class="label-name">
-                          <span class="content-name">Tel. Celular</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
-                <div class="container p-0">
-                  <div class="row m-0">
-                  <div class="col-sm-2 mt-4">
-                    <div class="box-info d-flex">
-                      <div class="form">
-                        <input type="text" name="ddi-2" autocomplete="off" required>
-                        <label for="ddi-2" class="label-name">
-                          <span class="content-name">DDI</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-2 mt-4">
-                    <div class="box-info d-flex">
-                      <div class="form">
-                        <input type="text" name="ddd-2" autocomplete="off" required>
-                        <label for="ddd-2" class="label-name">
-                          <span class="content-name">DDD</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-sm-5 mt-4">
-                    <div class="box-info d-flex">
-                      <div class="form">
-                        <input type="text" name="tel-celular-2" autocomplete="off" required>
-                        <label for="tel-celular-2" class="label-name">
-                          <span class="content-name">Tel. Celular</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </div>
-                <div class="col-sm-6 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="email-1" autocomplete="off" required>
-                      <label for="email-1" class="label-name">
-                        <span class="content-name">Email</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-sm-6 mt-4">
-                  <div class="box-info d-flex">
-                    <div class="form">
-                      <input type="text" name="email-2" autocomplete="off" required>
-                      <label for="email-2" class="label-name">
-                        <span class="content-name">Email</span>
-                      </label>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- fim endereco residencial -->
-            </div>
-          </div>
-          <!-- fim terceira etapa -->
-
-          <!-- quarta etapa -->
-          <div role="tabpanel" class="tab-pane fade" id="quarta-etapa">
-            <div class="container quarta-etapa">
-              <!-- forma de pagamento -->
-              <div class="row">
-                <div class="col-md-6 mt-2 mb-2">
-                  <div class="box-titulo forma-de-pagamento">
-                    <h6>Forma de pagamento</h6>
-                  </div>
-                </div>
-                <div class="col-md-6 mt-2 mb-2 d-none d-md-block">
-                  <div class="box-titulo resumo-da-compra">
-                    <img src="img/i-compras.svg" class="float-left mr-2">
-                    <h6 class="pt-1">Resumo da Compra</h6>
-                  </div>
-                </div>
-                <div class="col-md-6 mt-2">
-                  <div class="box-info h-70 d-flex">
-                    <div class="ex-radio w-50">
-                      <input type="radio" id="radio_one" name="radio_group"/>
-                      <label for="radio_one">Boleto bancário</label>
-                    </div>
-                    <div class="icones-right w-50 text-right">
-                      <img src="img/i-cod-barra.svg">
-                    </div>
-                  </div>
-                  <div class="container p-0 mt-4">
-                    <div class="row p-0">
-                      <div class="col">
-                        <div class="box-info h-auto">
-                          <div class="d-flex">
-                            <div class="ex-radio w-50">
-                              <input type="radio" id="radio_one" name="radio_group" checked />
-                              <label for="radio_one">Débito em conta corrente</label>
-                            </div>
-                            <div class="icones-right w-50 text-right">
-                              <img src="img/i-cartao.svg">
-                            </div>
-                          </div>
-                          <hr>
-                          <div class="container p-0">
-                            <div class="row">
-                              <div class="col-sm-8">
-                                <div class="form-group input-group date form_datetime" data-date-format="dd/mm/yyyy" data-link-field="dtp_input1">
-                                  <div class="form">
-                                    <input class="form-control date form_date input-date" size="16" type="text" value="" maxlength="10" name="dtp_input1" onkeypress="$(this).mask('00/00/0000');" placeholder="" autocomplete="off" required="">
-                                    <label for="text" class="label-name">
-                                    <span class="content-name">
-                                      <span>Dia do vencimento</span>
-                                    </span>
-                                    </label>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row mt-3">
-                              <div class="col-sm-8">
-                                <div class="form-select">
-                                  <span class="titulo">Banco</span>
-                                  <select name="name" id="banco" class="custom-select sources" placeholder="Selecione">
-                                    <option value="">1</option>
-                                    <option value="">2</option>
-                                    <option value="">3</option>
-                                  </select>
-                                </div>
-                              </div>
-                            </div>
-                            <div class="row mt-3">
-                              <div class="col-sm-4">
-                                <div class="form">
-                                  <input type="text" name="ddi-2" autocomplete="off" required>
-                                  <label for="ddi-2" class="label-name">
-                                    <span class="content-name">Agência</span>
-                                  </label>
-                                </div>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="form">
-                                  <input type="text" name="ddi-2" autocomplete="off" required>
-                                  <label for="ddi-2" class="label-name">
-                                    <span class="content-name">Conta</span>
-                                  </label>
-                                </div>
-                              </div>
-                              <div class="col-sm-4">
-                                <div class="form">
-                                  <input type="text" name="ddi-2" autocomplete="off" required>
-                                  <label for="ddi-2" class="label-name">
-                                    <span class="content-name">Dígito</span>
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="col-12 mt-4 mb-2 d-block d-md-none">
-                  <div class="box-titulo resumo-da-compra">
-                    <img src="img/i-compras.svg" class="float-left mr-2">
-                    <h6 class="pt-1">Resumo da Compra</h6>
-                  </div>
-                </div>
-                <div class="col-md-6 mt-2">
-                  <div class="box-resumo">
-                    <div class="container">
-                      <div class="row">
-                        <div class="col b-resumo">
-                          <h6>Fundo escolhido</h6>
-                          <p>Mapfre corporate renda fixa prev fundo de investimento</p>
-                        </div>
-                      </div>
-                      <hr>
-                      <div class="row">
-                        <div class="col-lg-6 b-resumo">
-                          <h6>Valor da contribuição mensal</h6>
-                          <p>R$ 100</p>
-                        </div>
-                        <div class="d-none d-lg-block col-lg-1 divisoria"></div>
-                        <div class="d-sm-block d-md-block d-lg-none col-12 divisoria-responsive mb-3"></div>
-                        <div class="col-lg-5 b-resumo">
-                          <h6>Valor do aporte</h6>
-                          <p>R$ 100</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- fim forma de pagamento -->
-            </div>
-          </div>
-          <!-- fim quarta etapa -->
-        </div>
-    </form>
-    </section>
-
-    <footer>
-      <!-- btns etapas -->
-      <div class="container">
-        <div class="buttons-tab primeira-etapa-btn">
-          <button type="button" name="button" class="btn btn-next float-right next">Próximo</button>
-        </div>
-        <div class="buttons-tab segunda-etapa-btn d-none">
-          <button type="button" name="button" class="btn btn-prev float-left prev">Anterior</button>
-          <button type="button" name="button" class="btn btn-next float-right next">Próximo</button>
-        </div>
-        <div class="buttons-tab terceira-etapa-btn d-none">
-          <button type="button" name="button" class="btn btn-prev float-left prev">Anterior</button>
-          <button type="button" name="button" class="btn btn-next float-right next">Próximo</button>
-        </div>
-        <div class="buttons-tab quarta-etapa-btn d-none">
-          <button type="button" name="button" class="btn btn-prev float-left prev">Anterior</button>
-          <button type="button" name="button" class="btn btn-final float-right d-block">Finalizar pagamento</button>
-        </div>
-      </div>
-      <!-- btns etapas -->
     </footer>
 
-
-  <!-- modal info etapa 2-->
-  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-        <div class="modal-header d-flex">
-          <h5 class="modal-title" id="exampleModalLongTitle">
-            <span class="i-informacao"></span>
-            <span>Mapfre Corporate renda fixa prev fundo de investimento</span>
-          </h5>
-        </div>
-        <div class="modal-body">
-          <p>Nas modalidades, critérios de diversificação, diversidade e demais aspectos contidos
-            na regulamentação vigente, sendo que os investimentos de renda variável representarão
-            no mínimo 0% (ZERO POR CENTO) e no máximo 49% (QUARENTA E NOVE POR CENTO) do patrimônio
-            líquido do FIE.
-          </p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
-        </div>
+    <!-- Diálogos ---------------------------------------------------------- -->
+    <dialog class="dialogo" id="dialogo-fundo" aria-labelledby="dialogo-fundo-titulo">
+      <div class="dialogo__cabecalho">
+        <svg class="icon dialogo__icone" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-info"/></svg>
+        <h2 class="dialogo__titulo" id="dialogo-fundo-titulo"></h2>
       </div>
-    </div>
-  </div>
-  <!-- modal info etapa 2-->
+      <div class="dialogo__corpo">
+        <p id="dialogo-fundo-descricao"></p>
+        <dl class="ficha" id="dialogo-fundo-ficha"></dl>
+      </div>
+      <div class="dialogo__acoes">
+        <button class="btn btn--contorno" type="button" data-fechar>Fechar</button>
+        <button class="btn btn--primario" type="button" id="dialogo-fundo-escolher">Escolher este fundo</button>
+      </div>
+    </dialog>
 
-  <!-- scripts necessarios -->
-  <script src="js/jquery-3.3.1.slim.min.js"></script>
-  <script src="js/popper.min.js"></script>
-  <script src="js/bootstrap.min.js"></script>
-  <!-- fim scripts necessarios -->
+    <dialog class="dialogo" id="dialogo-plano" aria-labelledby="dialogo-plano-titulo">
+      <div class="dialogo__cabecalho">
+        <svg class="icon dialogo__icone" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-help"/></svg>
+        <h2 class="dialogo__titulo" id="dialogo-plano-titulo">PGBL ou VGBL?</h2>
+      </div>
+      <div class="dialogo__corpo">
+        <p>A diferença está em como o Imposto de Renda é cobrado.</p>
+        <dl class="ficha ficha--texto">
+          <dt>PGBL</dt>
+          <dd>Você pode deduzir as contribuições da base do IR, até 12% da sua renda bruta anual. No resgate, o imposto incide sobre o valor total. Vale a pena para quem faz a declaração completa.</dd>
+          <dt>VGBL</dt>
+          <dd>Não há dedução no IR. No resgate, o imposto incide só sobre o rendimento. Vale a pena para quem declara no modelo simplificado, é isento ou já passou dos 12%.</dd>
+        </dl>
+      </div>
+      <div class="dialogo__acoes">
+        <button class="btn btn--primario" type="button" data-fechar>Entendi</button>
+      </div>
+    </dialog>
 
-  <!-- script datepicker -->
-  <script src="js/bootstrap-datetimepicker.js"></script>
-  <script src="js/locales/bootstrap-datetimepicker.pt-BR.js"></script>
-  <!-- fim script datepicker -->
+    <dialog class="dialogo" id="dialogo-regime" aria-labelledby="dialogo-regime-titulo">
+      <div class="dialogo__cabecalho">
+        <svg class="icon dialogo__icone" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-help"/></svg>
+        <h2 class="dialogo__titulo" id="dialogo-regime-titulo">Progressivo ou regressivo?</h2>
+      </div>
+      <div class="dialogo__corpo">
+        <p>O regime define a alíquota do Imposto de Renda quando você resgatar ou começar a receber.</p>
+        <dl class="ficha ficha--texto">
+          <dt>Progressivo</dt>
+          <dd>Segue a tabela do IR, de 0% a 27,5%, conforme o valor recebido. Combina com quem pensa em resgatar antes de 10 anos ou vai receber uma renda menor.</dd>
+          <dt>Regressivo</dt>
+          <dd>A alíquota começa em 35% e cai 5 pontos a cada 2 anos, até chegar a 10% depois de 10 anos. Combina com quem vai deixar o dinheiro investido por muito tempo.</dd>
+        </dl>
+      </div>
+      <div class="dialogo__acoes">
+        <button class="btn btn--primario" type="button" data-fechar>Entendi</button>
+      </div>
+    </dialog>
 
-  <!-- script mask para inputs cpf, cnpj, data, moeda etc -->
-  <script src="js/jquery.mask.min.js"></script>
-  <!-- fim script mask para inputs cpf, cnpj, moeda etc -->
+    <dialog class="dialogo" id="dialogo-regulamento" aria-labelledby="dialogo-regulamento-titulo">
+      <div class="dialogo__cabecalho">
+        <svg class="icon dialogo__icone" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-file"/></svg>
+        <h2 class="dialogo__titulo" id="dialogo-regulamento-titulo">Regulamento do plano (resumo)</h2>
+      </div>
+      <div class="dialogo__corpo">
+        <ul class="lista">
+          <li>As contribuições são aplicadas no fundo escolhido e podem ser trocadas de fundo a qualquer momento, sem custo.</li>
+          <li>O primeiro resgate pode ser feito depois de 60 dias da contratação. Entre um resgate e outro, o prazo é de 60 dias.</li>
+          <li>Você pode pausar as contribuições mensais por até 12 meses, sem perder o plano.</li>
+          <li>Não há taxa de carregamento na entrada nem na saída.</li>
+          <li>Em caso de morte do titular, o saldo vai para os beneficiários indicados ou, sem indicação, para os herdeiros legais.</li>
+        </ul>
+        <p class="dica">Texto fictício, escrito para o case.</p>
+      </div>
+      <div class="dialogo__acoes">
+        <button class="btn btn--primario" type="button" data-fechar>Fechar</button>
+      </div>
+    </dialog>
 
-  <!-- script configuracoes -->
-  <script src="js/script.js"></script>
-  <!-- fim script configuracoes -->
+    <dialog class="dialogo" id="dialogo-confirmar" aria-labelledby="dialogo-confirmar-titulo">
+      <div class="dialogo__cabecalho">
+        <svg class="icon dialogo__icone dialogo__icone--sucesso" aria-hidden="true" focusable="false"><use href="img/icons.svg#i-shield"/></svg>
+        <h2 class="dialogo__titulo" id="dialogo-confirmar-titulo">Confirmar a contratação?</h2>
+      </div>
+      <div class="dialogo__corpo">
+        <p id="dialogo-confirmar-texto"></p>
+      </div>
+      <div class="dialogo__acoes">
+        <button class="btn btn--contorno" type="button" data-fechar>Revisar</button>
+        <button class="btn btn--sucesso" type="button" id="confirmar-contratacao">Confirmar e contratar</button>
+      </div>
+    </dialog>
+
+    <div class="visually-hidden" id="anuncios" role="status" aria-live="polite"></div>
+
+    <script src="js/common.js"></script>
+    <script src="js/dados.js"></script>
+    <script src="js/contratacao.js"></script>
   </body>
 </html>
