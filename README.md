@@ -6,12 +6,12 @@
 
 **Case de UX/UI e front-end: contratação de previdência privada em 4 etapas, dentro de um app parceiro.**
 
-[![CI](https://github.com/fernandopinhel/prototipo-mapfre/actions/workflows/ci.yml/badge.svg)](https://github.com/fernandopinhel/prototipo-mapfre/actions/workflows/ci.yml)
+[![CI](https://github.com/fernandopinhel/amparo-previdencia/actions/workflows/ci.yml/badge.svg)](https://github.com/fernandopinhel/amparo-previdencia/actions/workflows/ci.yml)
 ![HTML, CSS e JS puros](https://img.shields.io/badge/stack-HTML%20·%20CSS%20·%20JS%20puros-d3192a)
 ![WCAG 2.2 AA](https://img.shields.io/badge/acessibilidade-WCAG%202.2%20AA-0b7f3f)
 ![Sem dependências](https://img.shields.io/badge/dependências%20de%20runtime-0-526570)
 
-[Ver o protótipo](https://fernandopinhel.github.io/prototipo-mapfre/) ·
+[Ver o protótipo](https://fernandopinhel.github.io/amparo-previdencia/) ·
 [Como rodar](#como-rodar-localmente) ·
 [O case](#o-case)
 
@@ -248,8 +248,8 @@ ao `file://`, porque a CSP e o sprite de ícones se comportam de forma diferente
 arquivos locais.
 
 ```bash
-git clone https://github.com/fernandopinhel/prototipo-mapfre.git
-cd prototipo-mapfre
+git clone https://github.com/fernandopinhel/amparo-previdencia.git
+cd amparo-previdencia
 
 # Opção 1: Python
 python3 -m http.server 8080
@@ -276,7 +276,7 @@ O workflow `.github/workflows/pages.yml` publica o site a cada push na `master`.
 2. Em **Build and deployment → Source**, escolha **GitHub Actions**.
 3. Faça um push na `master` ou rode o workflow em **Actions → Deploy GitHub Pages**.
 
-O endereço será <https://fernandopinhel.github.io/prototipo-mapfre/>.
+O endereço será <https://fernandopinhel.github.io/amparo-previdencia/>.
 
 ---
 
