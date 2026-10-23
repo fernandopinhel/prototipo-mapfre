@@ -7,7 +7,7 @@ de clientes.
 ## Reportando uma vulnerabilidade
 
 Se encontrar um problema de segurança, abra um
-[security advisory privado](https://github.com/fernandopinhel/prototipo-mapfre/security/advisories/new)
+[security advisory privado](https://github.com/fernandopinhel/amparo-previdencia/security/advisories/new)
 em vez de uma issue pública.
 
 ## Medidas adotadas
